@@ -1,18 +1,18 @@
-import { IconBrandAirbnb, IconBuildingSkyscraper } from "@/components/icons";
-import { MenuList } from "../..";
+import { IconBrandAirbnb, IconBuildingSkyscraper } from '@/components/icons';
+import { Menu } from '../..';
 
 export function Affiliates({ className }: { className?: string }) {
   const items = [
     {
-      href: "#",
-      label: "Hotel Quinto Nivel RD - AirB&B",
+      href: '#',
+      label: 'Hotel Quinto Nivel RD - AirB&B',
       isExternal: true,
       Icon: IconBrandAirbnb,
       iconSize: 20,
     },
     {
-      href: "https://www.airbnb.com/rooms/plus/23068908",
-      label: "Hotel Quinto Nivel RD - Expedia",
+      href: 'https://www.airbnb.com/rooms/plus/23068908',
+      label: 'Hotel Quinto Nivel RD - Expedia',
       isExternal: true,
       Icon: IconBuildingSkyscraper,
       iconSize: 20,
@@ -20,7 +20,7 @@ export function Affiliates({ className }: { className?: string }) {
   ];
   return (
     <article className={className}>
-      <MenuList items={items} heading="Affiliates" />
+      <Menu items={items} heading="Affiliates" />
     </article>
   );
 }

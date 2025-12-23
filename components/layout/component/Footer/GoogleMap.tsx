@@ -1,9 +1,9 @@
-import { MenuList } from "../..";
+import { Menu } from '../../core';
 
 export function GoogleMap({ className }: { className?: string }) {
   return (
     <article className={className}>
-      <MenuList
+      <Menu
         heading="Find Us in Google Maps"
         itemClassName="mt-4 h-52 w-full overflow-hidden rounded-md"
       >
@@ -16,7 +16,7 @@ export function GoogleMap({ className }: { className?: string }) {
           allowFullScreen={true}
           referrerPolicy="no-referrer-when-downgrade"
         />
-      </MenuList>
+      </Menu>
     </article>
   );
 }

@@ -1,0 +1,13 @@
+{
+  "entryPoints": ["components", "types"],
+  "entryPointStrategy": "expand",
+  "out": "docs",
+  "plugin": ["typedoc-plugin-markdown"],
+  "readme": "none",
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeInternal": true,
+  "excludeExternals": true,
+  "cleanOutputDir": true,
+  "exclude": ["**/.next/**", "**/node_modules/**"]
+}

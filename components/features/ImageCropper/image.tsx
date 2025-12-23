@@ -1,0 +1,274 @@
+'use client';
+
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
+import { clsx } from 'clsx';
+import { useMutation, useQuery } from 'convex/react';
+import { useRef, useState } from 'react';
+import Cropper, { type Area } from 'react-easy-crop';
+import {
+  IconCrop,
+  IconPhotoPlus,
+  IconRotate,
+  IconRotateClockwise,
+  IconTrash,
+  IconZoomCancel,
+  IconZoomOut,
+} from '@/components/icons';
+import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Label } from '@/components/ui/label';
+import { Spinner } from '@/components/ui/spinner';
+import { HQNRD } from '@/constants';
+import { api } from '@/convex/_generated/api';
+import type { Id } from '@/convex/_generated/dataModel';
+import { dataURLtoFile, getCroppedImg } from './utils';
+
+type FileToUploadProps = {
+  fileId: Id<'_storage'> | null;
+};
+
+export const ImageUpload = ({
+  labelStyle,
+  fileName,
+  placeholder = 'Choose File',
+  aspect,
+}: {
+  labelStyle: string;
+  fileName: string;
+  placeholder?: string;
+  aspect: number;
+}) => {
+  const [crop, setCrop] = useState({ x: 0, y: 0 });
+  const [zoom, setZoom] = useState(1);
+  const [rotation, setRotation] = useState(0);
+
+  const [file, setFile] = useState<File | null>(null);
+  const [imgString, setImageString] = useState<string>('');
+
+  const [croppedImg, setCroppedImg] = useState<string | null>(null);
+  const [isDialogOpen, setDialogOpen] = useState(false);
+
+  const [loading, setLoading] = useState(false);
+  const croppedAreaPixelsRef = useRef<Area | null>(null);
+
+  const [fileDetails, setFileDetails] = useState<FileToUploadProps>({
+    fileId: null,
+  });
+
+  const generatedUploadUrl = useMutation(api.upload.generateUploadUrl);
+  const deleteFileFromDb = useMutation(api.upload.deleteFileFromStorage);
+
+  const fileUrl = useQuery(
+    api.upload.getFileUrl,
+    fileDetails.fileId ? { storageId: fileDetails.fileId } : 'skip',
+  );
+
+  // File chosen
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const localFile = e.target.files?.[0];
+    if (!localFile) return;
+
+    setFile(localFile);
+    setDialogOpen(true);
+
+    const reader = new FileReader();
+    reader.onload = () => setImageString(reader.result as string);
+    reader.readAsDataURL(localFile);
+  };
+
+  // Crop dims
+  const onCropComplete = (_: Area, area: Area) => {
+    croppedAreaPixelsRef.current = area;
+  };
+
+  // Finalize upload
+  const handleCrop = async () => {
+    if (!imgString || !file || !croppedAreaPixelsRef.current) return;
+
+    setLoading(true);
+
+    // Convert to AVIF/WebP
+    const croppedBase64 = await getCroppedImg({
+      imageSrc: imgString,
+      pixelCrop: croppedAreaPixelsRef.current,
+      rotation,
+      mimeType: HQNRD.MIMETYPE.image.AVIF,
+      quality: 0.85,
+      resizeFactor: 0.6,
+    });
+
+    setCroppedImg(croppedBase64);
+
+    const baseName = file.name.replace(/\.[^/.]+$/, '');
+    const croppedFile = dataURLtoFile(croppedBase64, baseName);
+
+    // Upload processed file
+    const uploadUrl = await generatedUploadUrl();
+    const res = await fetch(uploadUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': croppedFile.type },
+      body: croppedFile,
+    });
+
+    const json = await res.json();
+
+    if (json.storageId) {
+      setFileDetails({ fileId: json.storageId });
+    }
+
+    setDialogOpen(false);
+    setLoading(false);
+  };
+
+  // Clear
+  const handleClearCrop = async () => {
+    if (fileDetails.fileId) {
+      await deleteFileFromDb({ storageId: fileDetails.fileId });
+    }
+
+    setFileDetails({ fileId: null });
+    setCroppedImg(null);
+    setImageString('');
+    setFile(null);
+    setCrop({ x: 0, y: 0 });
+    setZoom(1);
+  };
+
+  // If uploading
+  if (loading) {
+    return (
+      <div
+        className={clsx(
+          'flex h-full w-full flex-col items-center justify-center gap-2 rounded-md',
+          labelStyle,
+        )}
+      >
+        <Spinner className="h-5 w-5" />
+        <p className="text-muted-foreground text-xs">Uploading...</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="h-full w-full overflow-hidden rounded-md">
+      {/* BUTTON BEFORE CROPPING */}
+      {!imgString && !croppedImg && !fileDetails.fileId && (
+        <>
+          <Label
+            className={clsx(
+              'relative flex w-full cursor-pointer items-center justify-center border p-2',
+              labelStyle,
+            )}
+            htmlFor={fileName}
+          >
+            <Button
+              className="pointer-events-none absolute right-2 bottom-2"
+              size="icon"
+              variant="default"
+            >
+              <IconPhotoPlus size={18} />
+            </Button>
+
+            <p className="text-muted-foreground text-xs">{placeholder}</p>
+
+            {/* File picker (never hold a value!) */}
+            <input
+              type="file"
+              id={fileName}
+              accept="image/*"
+              multiple={false}
+              className="hidden"
+              onChange={handleFileChange}
+            />
+          </Label>
+
+          {/* Hidden storage ID input */}
+        </>
+      )}
+
+      <input
+        type="text"
+        readOnly
+        name={fileName}
+        value={fileDetails.fileId || ''}
+        className="hidden"
+      />
+
+      {/* CROPPER DIALOG */}
+      <Dialog
+        open={isDialogOpen}
+        onOpenChange={(open) => {
+          if (!croppedImg) return;
+          setDialogOpen(open);
+        }}
+      >
+        <DialogContent
+          onInteractOutside={(e) => e.preventDefault()}
+          onEscapeKeyDown={(e) => e.preventDefault()}
+        >
+          <VisuallyHidden>
+            <DialogHeader>
+              <DialogTitle>Edit Image</DialogTitle>
+            </DialogHeader>
+          </VisuallyHidden>
+
+          <div className="relative h-400 w-full bg-black">
+            <Cropper
+              image={imgString}
+              crop={crop}
+              zoom={zoom}
+              rotation={rotation}
+              aspect={aspect}
+              showGrid
+              onCropChange={setCrop}
+              onZoomChange={setZoom}
+              onCropComplete={onCropComplete}
+            />
+          </div>
+
+          <div className="flex items-center justify-center gap-2 p-1 pt-6">
+            <Button size="icon" variant="outline" onClick={handleCrop}>
+              <IconCrop size={18} />
+            </Button>
+            <Button size="icon" variant="outline" onClick={() => setRotation(rotation + 90)}>
+              <IconRotateClockwise />
+            </Button>
+            <Button size="icon" variant="outline" onClick={() => setRotation(rotation - 90)}>
+              <IconRotate />
+            </Button>
+            <Button size="icon" variant="outline" onClick={() => setZoom(zoom + 0.1)}>
+              <IconZoomCancel />
+            </Button>
+            <Button size="icon" variant="outline" onClick={() => setZoom(zoom - 0.1)}>
+              <IconZoomOut />
+            </Button>
+            <Button
+              size="icon"
+              className="border border-red-500 bg-red-800 hover:bg-red-400"
+              onClick={handleClearCrop}
+            >
+              <IconTrash size={18} />
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* PREVIEW AFTER CROPPING */}
+      {fileUrl && (
+        <div className="relative overflow-hidden">
+          <img src={fileUrl} alt="Preview" className="h-full w-full rounded-md object-cover" />
+
+          <div className="absolute top-1 right-1">
+            <Button
+              size="icon"
+              className="rounded-md border border-red-500 bg-red-800 hover:bg-red-400"
+              onClick={handleClearCrop}
+            >
+              <IconTrash size={18} />
+            </Button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
