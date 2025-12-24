@@ -1,7 +1,7 @@
-import { MenuItemProps } from '@/types';
-import Link from 'next/link';
-import clsx from 'clsx';
-import { ExLink } from '@/components/features';
+import { MenuItemProps } from "@/types";
+import Link from "next/link";
+import clsx from "clsx";
+import { ExLink } from "@/components/features";
 
 /**
  * A menu list item component that renders a navigation link with optional icon and custom content.
@@ -30,14 +30,19 @@ import { ExLink } from '@/components/features';
 export function MenuItem({
   exLink = false,
   iconSize = 18,
-  href = '#',
+  href = "#",
   Icon,
   label,
   className,
   children,
 }: MenuItemProps) {
   return (
-    <li className={clsx('flex items-center space-x-2 text-xs lg:text-xs', className)}>
+    <li
+      className={clsx(
+        "flex items-center space-x-2 text-xs lg:text-xs",
+        className,
+      )}
+    >
       {Icon && (
         <span data-icon>
           <Icon size={iconSize} aria-hidden="true" />

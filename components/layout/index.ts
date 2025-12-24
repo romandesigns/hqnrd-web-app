@@ -1,5 +1,5 @@
 // Core Components
-export { Content, Menu, SiteLayout } from './core';
+export { Content, Menu, SiteLayout } from "./core";
 
 // Components
-export { Footer } from './component';
+export { Footer } from "./component";

@@ -1,2 +1,2 @@
-import { Card } from './Default';
+import { Card } from "./Default";
 export { Card };

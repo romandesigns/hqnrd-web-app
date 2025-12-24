@@ -10,4 +10,4 @@
  * @type {string[]}
  */
 
-export const languageTag = ['en-US', 'es-ES'];
+export const languageTag = ["en-US", "es-ES"];

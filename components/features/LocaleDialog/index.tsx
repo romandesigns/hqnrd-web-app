@@ -1,16 +1,15 @@
-'use client';
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
-import { Locale } from '@/i18n-config';
-import { cx, VariantProps } from 'class-variance-authority';
-import { Languages } from 'lucide-react';
-import { LocaleSwitcher } from '../LocaleSwitcher';
+} from "@/components/ui/dialog";
+import { Locale } from "@/i18n-config";
+import { cx, VariantProps } from "class-variance-authority";
+import { Languages } from "lucide-react";
+import { LocaleSwitcher } from "../LocaleSwitcher";
 
 /**
  * A dialog component that allows users to switch between different locales/languages.
@@ -39,7 +38,7 @@ export function LocaleDialog({
   className,
 }: {
   lang: Locale;
-  btnVariant: VariantProps<typeof Button>['variant'];
+  btnVariant: VariantProps<typeof Button>["variant"];
   className?: string;
 }) {
   return (

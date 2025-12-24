@@ -1,4 +1,8 @@
-import { IconStarFilled, IconStarHalfFilled, IconStarOff } from '@tabler/icons-react';
+import {
+  IconStarFilled,
+  IconStarHalfFilled,
+  IconStarOff,
+} from "@tabler/icons-react";
 
 /**
  * A component that displays a star rating visualization.
@@ -26,11 +30,21 @@ export function StarsRating({ rating }: { rating: number }) {
   return (
     <div className="flex items-center">
       {Array.from({ length: fullStars }).map((_, index) => (
-        <IconStarFilled key={`full-${index}`} className="text-(--brand-warning)" size={15} />
+        <IconStarFilled
+          key={`full-${index}`}
+          className="text-(--brand-warning)"
+          size={15}
+        />
       ))}
-      {hasHalfStar && <IconStarHalfFilled size={15} className="text-(--brand-warning)" />}
+      {hasHalfStar && (
+        <IconStarHalfFilled size={15} className="text-(--brand-warning)" />
+      )}
       {Array.from({ length: emptyStars }).map((_, index) => (
-        <IconStarOff size={15} key={`empty-${index}`} className="text-(--brand-warning)" />
+        <IconStarOff
+          size={15}
+          key={`empty-${index}`}
+          className="text-(--brand-warning)"
+        />
       ))}
     </div>
   );

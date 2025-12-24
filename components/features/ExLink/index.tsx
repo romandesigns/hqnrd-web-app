@@ -1,4 +1,4 @@
-import { ExLinkProps } from '@/types';
+import { ExLinkProps } from "@/types";
 
 /**
  * ExLink component that renders an anchor tag with target="_blank" and security attributes.
@@ -20,7 +20,12 @@ import { ExLinkProps } from '@/types';
 
 export function ExLink({ href, children, className }: ExLinkProps) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={className}
+    >
       {children}
     </a>
   );

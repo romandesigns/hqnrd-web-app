@@ -1,5 +1,5 @@
-import { ContentProps } from '@/types';
-import clsx from 'clsx';
+import { ContentProps } from "@/types";
+import clsx from "clsx";
 
 /**
  * Content component that wraps children with consistent layout constraints and spacing.
@@ -22,5 +22,9 @@ import clsx from 'clsx';
  */
 
 export function Content({ children, className }: ContentProps) {
-  return <div className={clsx('max-width mx-auto px-2 lg:px-20', className)}>{children}</div>;
+  return (
+    <div className={clsx("max-width mx-auto px-2 lg:px-20", className)}>
+      {children}
+    </div>
+  );
 }

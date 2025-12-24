@@ -103,3 +103,14 @@ export interface TextAreaProps {
   name: string;
   maxLength?: number;
 }
+
+// SectionHeading Props
+// ==========================================
+
+export interface SectionHeadingProps {
+  title?: React.ReactNode;
+  description?: React.ReactNode;
+  showBorders?: boolean;
+  className?: string;
+  postTitleClassName?: string;
+}

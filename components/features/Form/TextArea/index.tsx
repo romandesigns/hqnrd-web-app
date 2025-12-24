@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React from 'react';
-import { Textarea } from '@/components/ui/textarea';
-import { TextAreaProps } from '@/types';
+import React from "react";
+import { Textarea } from "@/components/ui/textarea";
+import { TextAreaProps } from "@/types";
 
 /**
  * A textarea component with character count validation and display.
@@ -26,7 +26,7 @@ import { TextAreaProps } from '@/types';
  */
 
 export function TextArea({ name, maxLength = 150 }: TextAreaProps) {
-  const [value, setValue] = React.useState('');
+  const [value, setValue] = React.useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newValue = e.target.value;
@@ -49,7 +49,9 @@ export function TextArea({ name, maxLength = 150 }: TextAreaProps) {
       <div
         id={`${name}-counter`}
         className={`text-right text-xs ${
-          value.length === maxLength ? 'text-(--brand-danger)' : 'text-muted-foreground'
+          value.length === maxLength
+            ? "text-(--brand-danger)"
+            : "text-muted-foreground"
         }`}
       >
         {value.length} / {maxLength}

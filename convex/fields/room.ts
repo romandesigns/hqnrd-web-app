@@ -1,5 +1,5 @@
-import { v } from 'convex/values';
-import { amenityValidatorShape } from '../../utils/amenities/index.js';
+import { v } from "convex/values";
+import { amenityValidatorShape } from "../../utils/amenities/index.js";
 
 export const RoomFields = {
   unitNumber: v.number(),

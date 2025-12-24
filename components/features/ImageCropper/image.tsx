@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
-import { clsx } from 'clsx';
-import { useMutation, useQuery } from 'convex/react';
-import { useRef, useState } from 'react';
-import Cropper, { type Area } from 'react-easy-crop';
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { clsx } from "clsx";
+import { useMutation, useQuery } from "convex/react";
+import { useRef, useState } from "react";
+import Cropper, { type Area } from "react-easy-crop";
 import {
   IconCrop,
   IconPhotoPlus,
@@ -13,24 +13,29 @@ import {
   IconTrash,
   IconZoomCancel,
   IconZoomOut,
-} from '@/components/icons';
-import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Label } from '@/components/ui/label';
-import { Spinner } from '@/components/ui/spinner';
-import { HQNRD } from '@/constants';
-import { api } from '@/convex/_generated/api';
-import type { Id } from '@/convex/_generated/dataModel';
-import { dataURLtoFile, getCroppedImg } from './utils';
+} from "@/components/icons";
+import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
+import { Spinner } from "@/components/ui/spinner";
+import { HQNRD } from "@/constants";
+import { api } from "@/convex/_generated/api";
+import type { Id } from "@/convex/_generated/dataModel";
+import { dataURLtoFile, getCroppedImg } from "./utils";
 
 type FileToUploadProps = {
-  fileId: Id<'_storage'> | null;
+  fileId: Id<"_storage"> | null;
 };
 
 export const ImageUpload = ({
   labelStyle,
   fileName,
-  placeholder = 'Choose File',
+  placeholder = "Choose File",
   aspect,
 }: {
   labelStyle: string;
@@ -43,7 +48,7 @@ export const ImageUpload = ({
   const [rotation, setRotation] = useState(0);
 
   const [file, setFile] = useState<File | null>(null);
-  const [imgString, setImageString] = useState<string>('');
+  const [imgString, setImageString] = useState<string>("");
 
   const [croppedImg, setCroppedImg] = useState<string | null>(null);
   const [isDialogOpen, setDialogOpen] = useState(false);
@@ -60,7 +65,7 @@ export const ImageUpload = ({
 
   const fileUrl = useQuery(
     api.upload.getFileUrl,
-    fileDetails.fileId ? { storageId: fileDetails.fileId } : 'skip',
+    fileDetails.fileId ? { storageId: fileDetails.fileId } : "skip",
   );
 
   // File chosen
@@ -99,14 +104,14 @@ export const ImageUpload = ({
 
     setCroppedImg(croppedBase64);
 
-    const baseName = file.name.replace(/\.[^/.]+$/, '');
+    const baseName = file.name.replace(/\.[^/.]+$/, "");
     const croppedFile = dataURLtoFile(croppedBase64, baseName);
 
     // Upload processed file
     const uploadUrl = await generatedUploadUrl();
     const res = await fetch(uploadUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': croppedFile.type },
+      method: "POST",
+      headers: { "Content-Type": croppedFile.type },
       body: croppedFile,
     });
 
@@ -128,7 +133,7 @@ export const ImageUpload = ({
 
     setFileDetails({ fileId: null });
     setCroppedImg(null);
-    setImageString('');
+    setImageString("");
     setFile(null);
     setCrop({ x: 0, y: 0 });
     setZoom(1);
@@ -139,7 +144,7 @@ export const ImageUpload = ({
     return (
       <div
         className={clsx(
-          'flex h-full w-full flex-col items-center justify-center gap-2 rounded-md',
+          "flex h-full w-full flex-col items-center justify-center gap-2 rounded-md",
           labelStyle,
         )}
       >
@@ -156,7 +161,7 @@ export const ImageUpload = ({
         <>
           <Label
             className={clsx(
-              'relative flex w-full cursor-pointer items-center justify-center border p-2',
+              "relative flex w-full cursor-pointer items-center justify-center border p-2",
               labelStyle,
             )}
             htmlFor={fileName}
@@ -190,7 +195,7 @@ export const ImageUpload = ({
         type="text"
         readOnly
         name={fileName}
-        value={fileDetails.fileId || ''}
+        value={fileDetails.fileId || ""}
         className="hidden"
       />
 
@@ -230,16 +235,32 @@ export const ImageUpload = ({
             <Button size="icon" variant="outline" onClick={handleCrop}>
               <IconCrop size={18} />
             </Button>
-            <Button size="icon" variant="outline" onClick={() => setRotation(rotation + 90)}>
+            <Button
+              size="icon"
+              variant="outline"
+              onClick={() => setRotation(rotation + 90)}
+            >
               <IconRotateClockwise />
             </Button>
-            <Button size="icon" variant="outline" onClick={() => setRotation(rotation - 90)}>
+            <Button
+              size="icon"
+              variant="outline"
+              onClick={() => setRotation(rotation - 90)}
+            >
               <IconRotate />
             </Button>
-            <Button size="icon" variant="outline" onClick={() => setZoom(zoom + 0.1)}>
+            <Button
+              size="icon"
+              variant="outline"
+              onClick={() => setZoom(zoom + 0.1)}
+            >
               <IconZoomCancel />
             </Button>
-            <Button size="icon" variant="outline" onClick={() => setZoom(zoom - 0.1)}>
+            <Button
+              size="icon"
+              variant="outline"
+              onClick={() => setZoom(zoom - 0.1)}
+            >
               <IconZoomOut />
             </Button>
             <Button
@@ -256,7 +277,11 @@ export const ImageUpload = ({
       {/* PREVIEW AFTER CROPPING */}
       {fileUrl && (
         <div className="relative overflow-hidden">
-          <img src={fileUrl} alt="Preview" className="h-full w-full rounded-md object-cover" />
+          <img
+            src={fileUrl}
+            alt="Preview"
+            className="h-full w-full rounded-md object-cover"
+          />
 
           <div className="absolute top-1 right-1">
             <Button

@@ -1,10 +1,10 @@
-import { ClerkProvider as ClerkNextProvider } from '@clerk/nextjs';
-import { shadcn } from '@clerk/themes';
-import { enUS, esES } from '@clerk/localizations';
-import { Locale } from '@/i18n-config';
+import { ClerkProvider as ClerkNextProvider } from "@clerk/nextjs";
+import { shadcn } from "@clerk/themes";
+import { enUS, esES } from "@clerk/localizations";
+import { Locale } from "@/i18n-config";
 
 if (!process.env.NEXT_PUBLIC_CONVEX_URL) {
-  throw new Error('Missing NEXT_PUBLIC_CONVEX_URL in your .env file');
+  throw new Error("Missing NEXT_PUBLIC_CONVEX_URL in your .env file");
 }
 
 /**
@@ -24,17 +24,23 @@ if (!process.env.NEXT_PUBLIC_CONVEX_URL) {
  * - Logo placement outside the authentication forms
  */
 
-function ClerkProvider({ children, lang }: { children: React.ReactNode; lang: Locale }) {
+function ClerkProvider({
+  children,
+  lang,
+}: {
+  children: React.ReactNode;
+  lang: Locale;
+}) {
   return (
     <ClerkNextProvider
-      localization={lang === 'en' ? enUS : esES}
+      localization={lang === "en" ? enUS : esES}
       appearance={{
         baseTheme: shadcn,
         variables: {
-          fontFamily: 'var(--font-poppins-sans)',
+          fontFamily: "var(--font-poppins-sans)",
         },
         layout: {
-          logoPlacement: 'outside',
+          logoPlacement: "outside",
         },
       }}
     >

@@ -2,7 +2,7 @@ import type React from 'react';
 import { cn } from '@/lib/utils';
 import { CardDefaultProps } from '@/types';
 
-const PADDING_RATIO = 1.5;
+const PADDING_RATIO = 1.75;
 
 function isHeaderVisible(Header: React.ReactNode) {
   // Only filter out null, undefined, or false
@@ -53,7 +53,7 @@ export function Card({
   return (
     <div
       className={cn(
-        `bg-sidebar/80 dark:bg-popover flex-1 overflow-hidden rounded-lg p-0.5 ${horizontalPadding ? `px-${PADDING_RATIO}` : ''} ${aroundPadding ? `p-${PADDING_RATIO}` : ''}`,
+        `bg-sidebar/80 dark:bg-popover/50 flex-1 overflow-hidden rounded-lg p-0.75 dark:pb-1 ${horizontalPadding ? `px-${PADDING_RATIO}` : ''} ${aroundPadding ? `p-${PADDING_RATIO}` : ''}`,
         className,
       )}
     >

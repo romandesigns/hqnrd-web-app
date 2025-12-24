@@ -1,12 +1,12 @@
-import type React from 'react';
-import { Footer } from '../..';
-import { SiteLayoutProps } from '@/types';
+import type React from "react";
+import { Footer } from "../..";
+import { SiteLayoutProps } from "@/types";
 
 export function SiteLayout({
   showNavBar = false,
   showFooter = false,
   children,
-  lang = 'en',
+  lang = "en",
   navigationClassNames,
   footerClassNames,
   Header,

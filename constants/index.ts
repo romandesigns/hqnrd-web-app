@@ -1,15 +1,16 @@
-import { bedTypes } from './bedsTypes';
-import { branding } from './branding';
-import { categories } from './categories';
-import { contact } from './contact';
-import { currencies } from './currencies';
-import { flags } from './flags';
-import { languageTag } from './languageTag';
-import { locales } from './locales';
-import { mimetypes } from './mimetypes';
-import { orientation } from './orientation';
-import { roles } from './roles';
-import { social } from './social';
+import { bedTypes } from "./bedsTypes";
+import { branding } from "./branding";
+import { categories } from "./categories";
+import { contact } from "./contact";
+import { currencies } from "./currencies";
+import { flags } from "./flags";
+import { languageTag } from "./languageTag";
+import { locales } from "./locales";
+import { mimetypes } from "./mimetypes";
+import { orientation } from "./orientation";
+import { roles } from "./roles";
+import { social } from "./social";
+import { devSlogan } from "./devSlogan";
 
 /**
  * Main configuration object containing all application constants and settings for HQNRD.
@@ -43,4 +44,5 @@ export const HQNRD = {
   MIMETYPE: mimetypes,
   ORIENTATION: orientation,
   BEDTYPES: bedTypes,
+  DEVSLOGAN: devSlogan,
 };

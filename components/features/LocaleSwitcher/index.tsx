@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { i18n, Locale } from '@/i18n-config';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { twMerge } from 'tailwind-merge';
-import Image from 'next/image';
-import clsx from 'clsx';
-import { HQNRD } from '@/constants';
+import { i18n, Locale } from "@/i18n-config";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { twMerge } from "tailwind-merge";
+import Image from "next/image";
+import clsx from "clsx";
+import { HQNRD } from "@/constants";
 
 export const redirectedPathName = (locale: Locale, pathName: string) => {
-  if (!pathName) return '/';
-  const segments = pathName.split('/');
+  if (!pathName) return "/";
+  const segments = pathName.split("/");
   segments[1] = locale;
-  return segments.join('/');
+  return segments.join("/");
 };
 
 /**
@@ -47,8 +47,9 @@ export function LocaleSwitcher({ lang }: { lang: string }) {
             className={twMerge(
               `h-full w-full rounded-md hover:border`,
               clsx({
-                'text-(--brand-primary)': locale === lang,
-                'border border-(--brand-primary) bg-(--brand-primary)/10': locale === lang,
+                "text-(--brand-primary)": locale === lang,
+                "border border-(--brand-primary) bg-(--brand-primary)/10":
+                  locale === lang,
               }),
             )}
           >
@@ -56,18 +57,20 @@ export function LocaleSwitcher({ lang }: { lang: string }) {
               <div className="flex h-full w-full flex-col items-center justify-center space-y-2.5 font-sans">
                 <div className="flex w-full flex-col items-center justify-center rounded-md border border-transparent px-4 transition-all duration-200 ease-in-out">
                   <Image
-                    src={`/${HQNRD.LOCALEFLAGS}/${locale === 'en' ? 'us' : 'do'}.svg`}
+                    src={`/${HQNRD.LOCALEFLAGS}/${locale === "en" ? "us" : "do"}.svg`}
                     width={120}
                     height={120}
                     alt="Image"
                     className="object-cover"
                     style={{
-                      maxWidth: '100%',
-                      height: 'auto',
+                      maxWidth: "100%",
+                      height: "auto",
                     }}
                   />
                 </div>
-                <p className="font-medium">{locale === 'en' ? 'English' : 'Spanish'}</p>
+                <p className="font-medium">
+                  {locale === "en" ? "English" : "Spanish"}
+                </p>
               </div>
             </Link>
           </li>

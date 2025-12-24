@@ -1,8 +1,8 @@
-import { HQNRD } from '@/constants';
-import images from '@/public/assets/hqnrd/images.json';
-import type { Locale } from '@/i18n-config';
-import Link from 'next/link';
-import Image from 'next/image';
+import { HQNRD } from "@/constants";
+import images from "@/public/assets/hqnrd/images.json";
+import type { Locale } from "@/i18n-config";
+import Link from "next/link";
+import Image from "next/image";
 
 /**
  * Dashboard brand component that displays the hotel logo, name, and slogan.
@@ -31,8 +31,8 @@ export function DashboardBrand({ lang }: { lang: Locale }) {
         height={20}
         width={20}
         style={{
-          maxWidth: '100%',
-          height: 'auto',
+          maxWidth: "100%",
+          height: "auto",
         }}
       />
       <div className="text-base font-semibold">

@@ -11,4 +11,4 @@
  * ```
  */
 
-export const flags = 'assets/flags/locales';
+export const flags = "assets/flags/locales";

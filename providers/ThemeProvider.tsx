@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import * as React from 'react';
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import * as React from "react";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
 
 /**
  * ThemeProvider component that wraps the NextThemesProvider to provide theme functionality.

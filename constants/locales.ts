@@ -1,4 +1,4 @@
-import { languageTag } from './languageTag';
+import { languageTag } from "./languageTag";
 
 /**
  * Array of locale codes extracted from language tags.
@@ -8,4 +8,4 @@ import { languageTag } from './languageTag';
  * If languageTag contains ['en-US', 'es-ES'], locales will be ['en', 'es']
  */
 
-export const locales = languageTag.map((l) => l.split('-')[0]);
+export const locales = languageTag.map((l) => l.split("-")[0]);

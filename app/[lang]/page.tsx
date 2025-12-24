@@ -9,8 +9,8 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
 
   return (
     <SiteLayout lang={lang} showFooter>
-      <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-        <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between bg-white px-16 py-32 sm:items-start dark:bg-black">
+      <div className="flex min-h-screen items-center justify-center bg-pink-500 font-sans">
+        <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between px-16 py-32 sm:items-start">
           <Image
             className="dark:invert"
             src="/next.svg"
@@ -23,10 +23,6 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
             <Text as="h1" variant="h1" transform="upper">
               To get started, edit the page.tsx file.
             </Text>
-            {/* <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50"> */}
-
-            {/* </h1> */}
-
             <Text as="p" variant="small" transform="capitalize">
               Looking for a starting
               <Text as="small" variant="muted" className="mx-2">

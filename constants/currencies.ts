@@ -14,17 +14,17 @@
  */
 
 export const currencies = {
-  default: 'DOP',
+  default: "DOP",
   supported: {
     es: {
-      symbol: 'RD$',
-      name: 'Dominican Peso',
-      code: 'DOP',
+      symbol: "RD$",
+      name: "Dominican Peso",
+      code: "DOP",
     },
     en: {
-      symbol: '$',
-      name: 'United States Dollar',
-      code: 'USD',
+      symbol: "$",
+      name: "United States Dollar",
+      code: "USD",
     },
   },
 };

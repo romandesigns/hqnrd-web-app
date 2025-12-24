@@ -6,5 +6,6 @@ export { StarsRating } from '@/components/features/StarsRating';
 export { Card } from '@/components/features/Cards/Default';
 export { Brand, BrandAdmin } from '@/components/features/Brand';
 export { ContactWidget } from '@/components/features/ContactWidget';
+export { SectionHeading } from '@/components/features/SectionHeading';
 
 export { HiddenDialogItem };

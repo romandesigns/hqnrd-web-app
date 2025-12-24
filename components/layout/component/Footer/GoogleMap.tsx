@@ -1,4 +1,19 @@
-import { Menu } from '../../core';
+import { Menu } from "../../core";
+
+/**
+ * A component that displays an embedded Google Maps iframe showing the location of Hotel Quinto Nivel RD.
+ *
+ * @component
+ * @param {Object} props - The component props
+ * @param {string} [props.className] - Optional CSS class name to apply to the article wrapper element
+ *
+ * @returns {JSX.Element} An article element containing a Menu component with an embedded Google Maps iframe
+ *
+ * @example
+ * ```tsx
+ * <GoogleMap className="my-custom-class" />
+ * ```
+ */
 
 export function GoogleMap({ className }: { className?: string }) {
   return (

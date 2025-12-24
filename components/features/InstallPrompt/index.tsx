@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -9,10 +9,10 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/dialog';
-import { HQNRD } from '@/constants';
-import images from '@/public/assets/hqnrd/images.json';
-import { useInstallPrompt } from '@/hooks/useInstallPrompt';
+} from "@/components/ui/dialog";
+import { HQNRD } from "@/constants";
+import images from "@/public/assets/hqnrd/images.json";
+import { useInstallPrompt } from "@/hooks/useInstallPrompt";
 
 /**
  * InstallPrompt component displays a modal dialog prompting users to install the PWA (Progressive Web App).
@@ -40,7 +40,8 @@ import { useInstallPrompt } from '@/hooks/useInstallPrompt';
  */
 
 export default function InstallPrompt() {
-  const { deferredPrompt, showPrompt, setShowPrompt, dismissPrompt } = useInstallPrompt();
+  const { deferredPrompt, showPrompt, setShowPrompt, dismissPrompt } =
+    useInstallPrompt();
 
   const handleInstall = async () => {
     if (!deferredPrompt) return;
@@ -51,7 +52,7 @@ export default function InstallPrompt() {
     // 🔹 If they accept or dismiss, close the modal
     setShowPrompt(false);
     // Optionally remember if user dismissed manually
-    if (outcome === 'dismissed') {
+    if (outcome === "dismissed") {
       dismissPrompt();
     }
   };
@@ -61,21 +62,30 @@ export default function InstallPrompt() {
       <DialogContent className="flex h-11/12 w-11/12 flex-col items-center justify-center p-4">
         <DialogHeader className="flex flex-1 items-center justify-center">
           <div className="bg-background rounded-md p-2 shadow-md dark:shadow-black">
-            <Image width={50} height={50} src={images.hotel_logo} alt={HQNRD.BRANDING.alt} />
+            <Image
+              width={50}
+              height={50}
+              src={images.hotel_logo}
+              alt={HQNRD.BRANDING.alt}
+            />
           </div>
           <DialogTitle className="text-md text-primary font-bold">
             HQNRD App Installation
           </DialogTitle>
           <DialogDescription className="text-xs">
-            Add the <strong>Hotel Quinto Nivel RD</strong> app to your home screen for faster access
-            and a better mobile experience.
+            Add the <strong>Hotel Quinto Nivel RD</strong> app to your home
+            screen for faster access and a better mobile experience.
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="mt-auto flex w-full flex-row gap-2">
           <Button className="h-10 flex-1" onClick={handleInstall}>
             Install
           </Button>
-          <Button variant="outline" className="h-10 flex-1" onClick={dismissPrompt}>
+          <Button
+            variant="outline"
+            className="h-10 flex-1"
+            onClick={dismissPrompt}
+          >
             Decline
           </Button>
         </DialogFooter>
