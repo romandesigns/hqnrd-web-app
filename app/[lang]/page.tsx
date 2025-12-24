@@ -1,6 +1,5 @@
 import { SiteLayout } from '@/components/layout';
 import { Text } from '@/components/ui/Text';
-import { locales } from '@/constants/locales';
 import { Locale } from '@/i18n-config';
 import Image from 'next/image';
 
@@ -9,7 +8,7 @@ export default async function Home({ params }: { params: { lang: Locale } }) {
 
   return (
     <SiteLayout lang={lang} showFooter>
-      <div className="flex min-h-screen items-center justify-center bg-pink-500 font-sans">
+      <div className="flex min-h-screen items-center justify-center font-sans">
         <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between px-16 py-32 sm:items-start">
           <Image
             className="dark:invert"

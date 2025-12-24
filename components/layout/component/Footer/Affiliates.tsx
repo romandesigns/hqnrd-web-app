@@ -1,5 +1,6 @@
-import { IconBrandAirbnb, IconBuildingSkyscraper } from "@/components/icons";
-import { Menu } from "../..";
+import { IconBrandAirbnb, IconBuildingSkyscraper } from '@/components/icons';
+import { Menu } from '../..';
+import { HQNRD } from '@/constants';
 
 /**
  * Affiliates component that displays a list of affiliate links for Hotel Quinto Nivel RD.
@@ -19,16 +20,16 @@ import { Menu } from "../..";
 export function Affiliates({ className }: { className?: string }) {
   const items = [
     {
-      href: "#",
-      label: "Hotel Quinto Nivel RD - AirB&B",
-      isExternal: true,
+      href: HQNRD.PROFILES.AIRBNB.URL,
+      label: HQNRD.PROFILES.AIRBNB.LABEL,
+      exLink: true,
       Icon: IconBrandAirbnb,
       iconSize: 20,
     },
     {
-      href: "https://www.airbnb.com/rooms/plus/23068908",
-      label: "Hotel Quinto Nivel RD - Expedia",
-      isExternal: true,
+      href: HQNRD.PROFILES.EXPEDIA.URL,
+      label: HQNRD.PROFILES.EXPEDIA.LABEL,
+      exLink: true,
       Icon: IconBuildingSkyscraper,
       iconSize: 20,
     },

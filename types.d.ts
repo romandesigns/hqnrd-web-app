@@ -45,7 +45,7 @@ export interface MenuItemProps {
   exLink?: boolean;
   href?: string;
   label?: string;
-  Icon?: TablerIcon;
+  Icon?: IconComponent;
   iconSize?: number;
   className?: string;
   children?: React.ReactNode;
@@ -53,7 +53,7 @@ export interface MenuItemProps {
 
 export interface MenuProps {
   heading?: string;
-  items?: ItemProps[];
+  items?: MenuItemProps[];
   itemClassName?: string;
   className?: string;
   children?: React.ReactNode;

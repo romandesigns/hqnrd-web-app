@@ -9,6 +9,12 @@
  */
 
 export const social = {
-  facebook: "https://www.facebook.com/hotelquintonivelsalcedo/",
-  instagram: "https://www.instagram.com/rdhotelquintonivel",
+  FACEBOOK: {
+    URL: 'https://www.facebook.com/hotelquintonivelrd/',
+    LABEL: 'Facebook',
+  },
+  INSTAGRAM: {
+    URL: 'https://www.instagram.com/hotelquintonivel_rd/',
+    LABEL: 'Instagram',
+  },
 };

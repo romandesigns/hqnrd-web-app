@@ -1,5 +1,6 @@
-import { MenuProps } from "@/types";
-import { MenuItem } from "./MenuItem";
+import { MenuItemProps, MenuProps } from '@/types';
+import { MenuItem } from './MenuItem';
+import { Text } from '@/components/ui/Text';
 
 /**
  * A menu component that displays a list of navigation items with an optional heading.
@@ -23,13 +24,13 @@ export function Menu({ heading, items, itemClassName, children }: MenuProps) {
   return (
     <div className="text-muted-foreground space-y-4 font-sans">
       {heading && (
-        <h3 className="text-primary mb-6 text-xs font-bold uppercase">
+        <Text variant="p" size="xs" weight="bold" transform="upper">
           {heading}
-        </h3>
+        </Text>
       )}
       <ul className="[&>li]:hover:text-foreground cursor-pointer space-y-6">
         {!children &&
-          items?.map((item) => (
+          items?.map((item: MenuItemProps) => (
             <MenuItem {...item} key={item.label} className={itemClassName} />
           ))}
         {children && <MenuItem className={itemClassName}>{children}</MenuItem>}
