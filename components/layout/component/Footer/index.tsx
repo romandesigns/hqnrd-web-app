@@ -38,7 +38,6 @@ export const Footer = ({ lang, className }: { lang: Locale; className?: string }
         <Card
           horizontalPadding
           bodyClassName="font-sans [&_ul_li]:hover:underline"
-          className="max-w-95rem mx-auto"
           Header={
             <div className="flex items-center justify-start p-2 lg:px-12">
               <Brand lang={lang} />
@@ -53,13 +52,13 @@ export const Footer = ({ lang, className }: { lang: Locale; className?: string }
           }
         >
           <div className="grid grid-cols-1 gap-y-9 py-8 pb-0 md:grid-cols-2 lg:grid-cols-4 lg:px-10">
-            <Contact className="pb-8" />
-            <Social className="pb-8" />
-            <Help className="pb-8" />
+            <Contact className="pb-8 md:pb-0" />
+            <Social className="pb-8 md:pb-0" />
+            <Help className="pb-8 md:pb-0" />
             <Affiliates />
           </div>
-          <div className="gap-y-14 py-14 pb-0 lg:px-10">
-            <GoogleMap className="pt-8 md:max-w-md" />
+          <div className="gap-y-14 py-14 pb-0 md:pb-10 lg:px-10">
+            <GoogleMap className="pt-8 md:max-w-md md:pt-0" />
           </div>
         </Card>
       </Content>

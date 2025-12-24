@@ -24,7 +24,7 @@ export function Menu({ heading, items, itemClassName, children }: MenuProps) {
   return (
     <div className="text-muted-foreground space-y-4 font-sans">
       {heading && (
-        <Text variant="p" size="xs" weight="bold" transform="upper">
+        <Text variant="p" size="xs" weight="bold" transform="upper" accent="cool">
           {heading}
         </Text>
       )}

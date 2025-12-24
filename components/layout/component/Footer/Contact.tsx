@@ -23,22 +23,22 @@ import { Menu } from '../..';
 export function Contact({ className }: { className?: string }) {
   const items = [
     {
-      href: HQNRD.CONTACT.whatsapp,
-      label: '+1809-753-7500',
+      href: HQNRD.CONTACT.WHATSAPP.URL,
+      label: HQNRD.CONTACT.WHATSAPP.LABEL,
       exLink: true,
       Icon: IconBrandWhatsapp,
       iconSize: 20,
     },
     {
-      href: HQNRD.CONTACT.email,
-      label: 'hotelquintonivelrd@gmail.com',
+      href: HQNRD.CONTACT.EMAIL.URL,
+      label: HQNRD.CONTACT.EMAIL.LABEL,
       exLink: true,
       Icon: IconMail,
       iconSize: 20,
     },
     {
-      href: HQNRD.CONTACT.googleMap,
-      label: 'Calle de la Mujer #2, Urb, Salcedo 34000, RD',
+      href: HQNRD.CONTACT.GOOGLE_MAP.URL,
+      label: HQNRD.CONTACT.ADDRESS.LABEL,
       exLink: true,
       Icon: IconMapPin,
       iconSize: 20,
