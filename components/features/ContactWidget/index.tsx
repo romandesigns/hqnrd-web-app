@@ -1,11 +1,11 @@
-import { ExLink } from "@/components/features/ExLink";
-import { LocaleDialog } from "@/components/features/LocaleDialog";
-import { Button } from "@/components/ui/button";
-import { HQNRD } from "@/constants";
-import type { Locale } from "@/i18n-config";
-import { cn } from "@/lib/utils";
-import type { VariantProps } from "class-variance-authority";
-import { Mail, Map, MessageCircle } from "lucide-react";
+import { ExLink } from '@/components/features/ExLink';
+import { LocaleDialog } from '@/components/features/LocaleDialog';
+import { Button } from '@/components/ui/button';
+import { HQNRD } from '@/constants';
+import type { Locale } from '@/i18n-config';
+import { cn } from '@/lib/utils';
+import type { VariantProps } from 'class-variance-authority';
+import { Mail, Map, MessageCircle } from 'lucide-react';
 
 /**
  * A contact widget component that displays multiple contact method buttons.
@@ -23,66 +23,49 @@ import { Mail, Map, MessageCircle } from "lucide-react";
 
 export function ContactWidget({
   lang,
-  direction = "horizontal",
+  direction = 'horizontal',
   showBorders,
   className,
   btnVariant,
   btnClassNames,
 }: {
   lang: Locale;
-  direction?: "horizontal" | "vertical";
+  direction?: 'horizontal' | 'vertical';
   showBorders?: boolean;
   className?: string;
-  btnVariant?: VariantProps<typeof Button>["variant"];
+  btnVariant?: VariantProps<typeof Button>['variant'];
   btnClassNames?: string;
 }) {
   return (
-    <div className={cn("flex w-full flex-col", className)}>
+    <div className={cn('flex w-full flex-col', className)}>
       {showBorders && <div className="bg-secondary h-0.5 w-full" />}
       <ul
         className={cn(
           `flex items-center justify-center gap-2 space-x-0.5 ${
-            direction === "horizontal" ? "flex-row" : "flex-col"
+            direction === 'horizontal' ? 'flex-row' : 'flex-col'
           }`,
         )}
       >
         <li className="block">
-          <Button
-            size="icon"
-            variant={btnVariant}
-            className={cn(btnClassNames)}
-            asChild
-          >
-            <ExLink href={HQNRD.CONTACT.googleMap}>
+          <Button size="icon" variant={btnVariant} className={cn(btnClassNames)} asChild>
+            <ExLink href={HQNRD.CONTACT.GOOGLE_MAP.URL}>
               <Map />
             </ExLink>
           </Button>
         </li>
         <li className="block">
-          <Button
-            size="icon"
-            variant={btnVariant}
-            className={cn(btnClassNames)}
-          >
-            <ExLink href={HQNRD.CONTACT.whatsapp}>
+          <Button size="icon" variant={btnVariant} className={cn(btnClassNames)}>
+            <ExLink href={HQNRD.CONTACT.WHATSAPP.URL}>
               <MessageCircle />
             </ExLink>
           </Button>
         </li>
         <li className="block">
-          <LocaleDialog
-            lang={lang}
-            btnVariant={btnVariant}
-            className={cn(btnClassNames)}
-          />
+          <LocaleDialog lang={lang} btnVariant={btnVariant} className={cn(btnClassNames)} />
         </li>
         <li className="block">
-          <Button
-            size="icon"
-            variant={btnVariant}
-            className={cn(btnClassNames)}
-          >
-            <ExLink href={HQNRD.CONTACT.email}>
+          <Button size="icon" variant={btnVariant} className={cn(btnClassNames)}>
+            <ExLink href={HQNRD.CONTACT.EMAIL.URL}>
               <Mail />
             </ExLink>
           </Button>
