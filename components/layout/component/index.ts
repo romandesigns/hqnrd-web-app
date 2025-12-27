@@ -1,1 +1,1 @@
-export { Footer } from "./Footer";
+export { Billboard } from './site/home/Billboard';

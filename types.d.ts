@@ -8,6 +8,12 @@ export interface RootLayoutProps {
   params: Promise<{ lang: Locale }>;
 }
 
+// Home Page Props
+// ==========================================
+export interface HomePageProps {
+  params: Promise<{ lang: Locale }>;
+}
+
 // SiteLayout Props
 // ==========================================
 
@@ -19,6 +25,7 @@ export interface SiteLayoutProps {
   navigationClassNames?: string;
   footerClassNames?: string;
   Header?: React.ComponentType<{ lang: Locale }>;
+  Footer?: React.ComponentType<{ lang: Locale }>;
 }
 
 // Content Props

@@ -51,7 +51,7 @@ export const Footer = ({ lang, className }: { lang: Locale; className?: string }
             </div>
           }
         >
-          <div className="grid grid-cols-1 gap-y-9 py-8 pb-0 md:grid-cols-2 lg:grid-cols-4 lg:px-10">
+          <div className="grid grid-cols-1 gap-y-9 py-8 pb-0 sm:grid-cols-2 lg:grid-cols-2 lg:px-10 xl:grid-cols-3 2xl:grid-cols-4">
             <Contact className="pb-8 md:pb-0" />
             <Social className="pb-8 md:pb-0" />
             <Help className="pb-8 md:pb-0" />

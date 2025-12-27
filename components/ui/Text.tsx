@@ -6,9 +6,9 @@ const textVariants = tv({
   variants: {
     variant: {
       p: 'text-base leading-7',
-      h1: 'text-4xl leading-17 !font-extrabold tracking-tight lg:text-5xl',
-      h2: 'text-3xl !font-semibold tracking-tight',
-      h3: 'text-2xl !font-semibold tracking-tight',
+      h1: 'text-3xl! leading-17 font-black! tracking-tight lg:text-4xl!',
+      h2: 'text-3xl font-semibold! tracking-tight',
+      h3: 'text-2xl font-semibold! tracking-tight',
       h4: 'text-xl !font-semibold',
       h5: 'text-lg !font-medium',
       h6: 'text-base !font-medium uppercase tracking-wide',

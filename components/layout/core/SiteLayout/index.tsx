@@ -1,12 +1,11 @@
-import type React from "react";
-import { Footer } from "../..";
-import { SiteLayoutProps } from "@/types";
+import { SiteLayoutProps } from '@/types';
+import { Footer } from '../Footer';
 
 export function SiteLayout({
   showNavBar = false,
   showFooter = false,
   children,
-  lang = "en",
+  lang = 'en',
   navigationClassNames,
   footerClassNames,
   Header,
@@ -14,7 +13,7 @@ export function SiteLayout({
   return (
     <>
       {/* {showNavBar && <Navigation lang={lang} className={navigationClassNames} />} */}
-      {/* {Header && <Header lang={lang} />} */}
+      {Header && <Header lang={lang} />}
       {children}
       {showFooter && <Footer lang={lang} className={footerClassNames} />}
     </>

@@ -1,3 +1,6 @@
-export { Content } from "./Content";
-export { Menu } from "./Menu";
-export { SiteLayout } from "./SiteLayout";
+export { Content } from './Content';
+export { Menu } from './Menu';
+export { SiteLayout } from './SiteLayout';
+export { Main } from './Main';
+export { Section } from './Section';
+export { Header } from './Header';
