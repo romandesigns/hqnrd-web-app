@@ -71,12 +71,17 @@ import {
   IconZoomCancel,
   IconZoomOut,
   IconZoomQuestion,
-} from "@tabler/icons-react";
-import { GrFan } from "react-icons/gr";
-import { MdOutlineDinnerDining } from "react-icons/md";
-import { PiTowel } from "react-icons/pi";
+  IconLayoutDashboard,
+} from '@tabler/icons-react';
+import { GrFan } from 'react-icons/gr';
+import { MdOutlineDinnerDining } from 'react-icons/md';
+import { PiTowel } from 'react-icons/pi';
+import { Heater as IconHeader, House as IconHouse } from 'lucide-react';
 
 export {
+  IconLayoutDashboard,
+  IconHouse,
+  IconHeader,
   IconPhoto,
   IconCrop,
   IconPhotoPlus,

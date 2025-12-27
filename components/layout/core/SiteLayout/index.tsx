@@ -1,5 +1,5 @@
 import { SiteLayoutProps } from '@/types';
-import { Footer } from '../Footer';
+import { Footer, Navigation } from '../';
 
 export function SiteLayout({
   showNavBar = false,
@@ -12,7 +12,7 @@ export function SiteLayout({
 }: SiteLayoutProps) {
   return (
     <>
-      {/* {showNavBar && <Navigation lang={lang} className={navigationClassNames} />} */}
+      {showNavBar && <Navigation lang={lang} className={navigationClassNames} />}
       {Header && <Header lang={lang} />}
       {children}
       {showFooter && <Footer lang={lang} className={footerClassNames} />}

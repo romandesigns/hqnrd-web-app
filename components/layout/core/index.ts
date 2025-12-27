@@ -4,3 +4,5 @@ export { SiteLayout } from './SiteLayout';
 export { Main } from './Main';
 export { Section } from './Section';
 export { Header } from './Header';
+export { Navigation } from './Navigation';
+export { Footer } from './Footer';

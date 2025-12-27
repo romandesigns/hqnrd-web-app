@@ -7,7 +7,7 @@ export default async function Home({ params }: HomePageProps) {
   const { lang } = await params;
 
   return (
-    <SiteLayout lang={lang} Header={Billboard} showFooter>
+    <SiteLayout lang={lang} Header={Billboard} showFooter showNavBar>
       <Main className="">Main Content</Main>
     </SiteLayout>
   );

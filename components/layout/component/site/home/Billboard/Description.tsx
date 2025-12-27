@@ -4,7 +4,7 @@ import { Text } from '@/components/ui/Text';
 export function Description() {
   return (
     <article className="flex flex-col gap-6 rounded-lg px-2 lg:p-6">
-      <Text variant="p" align="center" transform="capitalize" weight="bold" size="xs">
+      <Text variant="p" align="center" transform="capitalize" weight="bold" size="xs" accent="warm">
         En el del Cibao — Salcedo, Provincia Hermanas Mirabal
       </Text>
       <Text variant="h1" align="center" transform="upper" className="mx-auto max-w-3xl">
@@ -14,11 +14,10 @@ export function Description() {
         variant="small"
         align="center"
         transform="capitalize"
-        className="text-muted-foreground"
+        className="text-muted-foreground leading-relaxed"
         size="xs"
       >
-        De viaje o de paseo, nuestras unidades cuentan con todo lo necesario para ofrecerte una
-        experiencia única.
+        Contamos con todo lo necesario para ofrecerte una experiencia única. Visitanos hoy!
       </Text>
       <div className="mx-auto flex w-full max-w-md items-center justify-center gap-2">
         <Button className="flex-1">Login</Button>

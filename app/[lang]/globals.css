@@ -46,6 +46,7 @@
 }
 
 :root {
+  --blur: 20px;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -133,14 +134,14 @@
 @layer utilities {
   .bg-glass {
     background-color: rgba(255, 255, 255, 0.3);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(var(--blur));
+    -webkit-backdrop-filter: saturate(180%) blur(var(--blur));
   }
 
   .dark .bg-glass {
     background-color: rgba(32, 32, 32, 0.3);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(var(--blur));
+    -webkit-backdrop-filter: saturate(180%) blur(var(--blur));
   }
 
   .max-width {
@@ -168,7 +169,7 @@
   div[data-slot='sheet-overlay'][data-state='open'],
   div[data-slot='dialog-overlay'][data-state='open'] {
     background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(var(--blur));
     transition: filter 0.3s ease;
   }
 }

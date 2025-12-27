@@ -7,7 +7,7 @@ export async function Gallery() {
   //   const colors = await getDominantPaletteFromPublicPath(publicPath, 5);
 
   return (
-    <article className="mx-auto grid h-86 w-full grid-cols-4 grid-rows-2 gap-2 py-8 sm:h-120 lg:aspect-video lg:h-10/12 lg:max-w-7xl lg:gap-4">
+    <article className="bg-muted/20 mx-auto grid h-86 w-full grid-cols-4 grid-rows-2 gap-2 overflow-hidden rounded-md border border-gray-200 px-4 py-4 sm:h-120 lg:aspect-video lg:h-10/12 lg:max-w-7xl lg:gap-4 dark:border-gray-800">
       {/* Left tall */}
       <div className="relative col-span-2 col-start-1 row-span-2 row-start-1 overflow-hidden rounded-tl-md rounded-bl-md lg:col-span-1 lg:row-span-2">
         <Image src={images[15]} alt="Sample 1" fill className="h-full w-full object-cover" />
