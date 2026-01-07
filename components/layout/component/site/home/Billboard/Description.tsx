@@ -1,16 +1,15 @@
 import { StarsRating, LottiePlayer } from '@/components/features';
 import { Button } from '@/components/ui/button';
 import { Text } from '@/components/ui/Text';
-import { google } from "@/public/assets/icons";
+import { google } from '@/public/assets/icons';
 
 export function Description() {
   return (
     <article className="flex flex-col gap-6 rounded-lg px-2 lg:p-6">
-      <div
-        className="mx-auto flex w-full max-w-md items-center justify-center gap-2">
-        <LottiePlayer item={google} autoplay loop className='h-8 w-8' />
+      <div className="mx-auto flex w-full max-w-md items-center justify-center gap-2">
+        <LottiePlayer item={google} autoplay loop className="h-8 w-8" />
         <div>
-          <p className='font-black'>4.5</p>
+          <p className="font-black">4.5</p>
           <StarsRating rating={4.5} />
         </div>
       </div>
@@ -24,7 +23,7 @@ export function Description() {
         variant="small"
         align="center"
         transform="capitalize"
-        className="text-muted-foreground leading-relaxed"
+        className="text-muted-foreground bg-muted foreground mx-auto max-w-xl rounded-md px-2.5 leading-relaxed"
         size="xs"
       >
         Contamos con todo lo necesario para ofrecerte una experiencia única. Visitanos hoy!
