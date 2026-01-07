@@ -17,7 +17,7 @@ import {
 import type { Locale } from '@/i18n-config';
 import { SignOutButton } from '@/components/ui/signOut';
 
-export async function DrawerMenu({ lang, className }: { lang: Locale; className?: string }) {
+export async function MobileMenu({ lang, className }: { lang: Locale; className?: string }) {
   const { isAuthenticated } = await auth();
   const user = await currentUser();
   return (
@@ -27,7 +27,7 @@ export async function DrawerMenu({ lang, className }: { lang: Locale; className?
           <IconMenuDeep />
         </Button>
       </DrawerTrigger>
-      <DrawerContent className={clsx(`h-100vh max-h-100vh! m-0 px-4 font-sans`, className)}>
+      <DrawerContent className={clsx(`px-4 font-sans`, className)} content='calc(100vh)'>
         <DrawerHeader className="flex items-center justify-center">
           <div>
             <div className="my-4 rounded-md p-1 shadow dark:shadow-black">

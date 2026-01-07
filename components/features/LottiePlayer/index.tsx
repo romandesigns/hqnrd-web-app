@@ -1,3 +1,5 @@
+'use client';
+
 import { LottiePlayerProps } from "@/types";
 import clsx from "clsx";
 import Lottie from "lottie-react";
@@ -26,7 +28,7 @@ import Lottie from "lottie-react";
  * ```
  */
 
-export default function LottiePlayer({
+export function LottiePlayer({
   item,
   loop,
   autoplay,

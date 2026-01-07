@@ -13,7 +13,7 @@
 
 export const contact = {
   ADDRESS: {
-    LABEL: 'Calle de la Mujer #2, Urb, Salcedo 34000, Dominican Republic',
+    LABEL: 'Calle de la Mujer #2 Salcedo 34000, Dominican Republic',
   },
   WHATSAPP: {
     LABEL: 'WhatsApp',

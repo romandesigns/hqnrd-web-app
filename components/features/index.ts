@@ -7,5 +7,8 @@ export { Card } from '@/components/features/Cards/Default';
 export { Brand, BrandAdmin } from '@/components/features/Brand';
 export { ContactWidget } from '@/components/features/ContactWidget';
 export { SectionHeading } from '@/components/features/SectionHeading';
+export { Cart } from '@/components/features/Cart';
+export { MobileMenu } from '@/components/features/MobileMenu';
+export { LottiePlayer } from '@/components/features/LottiePlayer';
 
 export { HiddenDialogItem };

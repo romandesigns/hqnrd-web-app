@@ -17,7 +17,7 @@ export function Cart({ lang }: { lang: Locale }) {
     <Sheet>
       <SheetTrigger asChild>
         <Button size={'icon'} variant={'secondary'} className="text-md relative">
-          <Badge asChild className="pointer-events-none absolute -top-2 -right-3">
+          <Badge asChild className="pointer-events-none absolute -top-0.5 -right-3">
             <Link href={`/${lang}`}>0</Link>
           </Badge>
           <IconCheckupList />

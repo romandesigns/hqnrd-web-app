@@ -3,8 +3,7 @@ import { RootLayoutProps } from '@/types';
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import Providers from '../../providers';
-import './globals.css';
-import Script from 'next/script';
+import '@/app/globals.css';
 
 export const metadata: Metadata = {
   title: 'Hotel Quinto Nivel RD',
@@ -45,7 +44,6 @@ export default async function RootLayout({ children, params }: Readonly<RootLayo
     <html lang="en" suppressHydrationWarning>
       <body className={`${poppinsSans.variable} overscroll-contain scroll-smooth antialiased`}>
         <Providers lang={lang}>
-          <Script src="https://cdn.lordicon.com/lordicon.js" strategy="beforeInteractive" />
           {children}
         </Providers>
       </body>

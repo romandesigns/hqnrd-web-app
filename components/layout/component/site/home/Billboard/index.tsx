@@ -12,9 +12,9 @@ export function Billboard({ lang }: { lang: Locale }) {
         <div className="mx-auto">
           {/* Scales proportionally */}
           <div className="grid w-full grid-rows-[auto_auto_2fr] gap-4">
-            <ContactWidget className="hidden md:block" lang={lang} btnVariant={'outline'} />
             {/* TEXT ROW */}
             <Description />
+            <ContactWidget className="hidden md:block" lang={lang} btnVariant={'outline'} />
             {/* GALLERY ROW */}
             <Gallery />
           </div>

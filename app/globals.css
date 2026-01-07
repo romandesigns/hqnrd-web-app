@@ -183,3 +183,12 @@
     transform: translate(-50%, -52%) scale(1.02);
   }
 }
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

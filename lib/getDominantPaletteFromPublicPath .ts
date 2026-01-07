@@ -1,5 +1,6 @@
 import path from 'path';
 import getPixels from 'get-pixels';
+
 import getPalette from 'get-rgba-palette';
 
 function getPixelsAsync(filePath: string) {

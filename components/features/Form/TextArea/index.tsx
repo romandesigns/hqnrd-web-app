@@ -48,11 +48,10 @@ export function TextArea({ name, maxLength = 150 }: TextAreaProps) {
 
       <div
         id={`${name}-counter`}
-        className={`text-right text-xs ${
-          value.length === maxLength
-            ? "text-(--brand-danger)"
-            : "text-muted-foreground"
-        }`}
+        className={`text-right text-xs ${value.length === maxLength
+          ? "text-(--brand-danger)"
+          : "text-muted-foreground"
+          }`}
       >
         {value.length} / {maxLength}
       </div>
