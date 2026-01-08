@@ -10,5 +10,6 @@ export { SectionHeading } from '@/components/features/SectionHeading';
 export { Cart } from '@/components/features/Cart';
 export { MobileMenu } from '@/components/features/MobileMenu';
 export { LottiePlayer } from '@/components/features/LottiePlayer';
+export { RoomsFilter } from '@/components/features/RoomFilter';
 
 export { HiddenDialogItem };

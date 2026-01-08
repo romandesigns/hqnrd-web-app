@@ -8,7 +8,9 @@ export default async function Home({ params }: HomePageProps) {
 
   return (
     <SiteLayout lang={lang} Header={Billboard} showFooter showNavBar>
-      <Main className="">Main Content</Main>
+      <Main className="">
+        <h2>Main Content</h2>
+      </Main>
     </SiteLayout>
   );
 }
