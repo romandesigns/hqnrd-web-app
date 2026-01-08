@@ -1,5 +1,5 @@
-import type { Area } from "react-easy-crop";
-import { HQNRD } from "@/constants";
+import type { Area } from 'react-easy-crop';
+import { HQNRD } from '@/constants';
 
 // Convert degrees → radians
 function getRadianAngle(deg: number) {
@@ -10,10 +10,8 @@ function getRadianAngle(deg: number) {
 function rotateSize(width: number, height: number, rotation: number) {
   const rotRad = getRadianAngle(rotation);
   return {
-    width:
-      Math.abs(Math.cos(rotRad) * width) + Math.abs(Math.sin(rotRad) * height),
-    height:
-      Math.abs(Math.sin(rotRad) * width) + Math.abs(Math.cos(rotRad) * height),
+    width: Math.abs(Math.cos(rotRad) * width) + Math.abs(Math.sin(rotRad) * height),
+    height: Math.abs(Math.sin(rotRad) * width) + Math.abs(Math.cos(rotRad) * height),
   };
 }
 
@@ -43,13 +41,9 @@ export async function getCroppedImg({
   const rot = getRadianAngle(rotation);
 
   // 1. Rotate canvas
-  const rotatedCanvas = document.createElement("canvas");
-  const rCtx = rotatedCanvas.getContext("2d")!;
-  const { width: rW, height: rH } = rotateSize(
-    image.width,
-    image.height,
-    rotation,
-  );
+  const rotatedCanvas = document.createElement('canvas');
+  const rCtx = rotatedCanvas.getContext('2d')!;
+  const { width: rW, height: rH } = rotateSize(image.width, image.height, rotation);
   rotatedCanvas.width = rW;
   rotatedCanvas.height = rH;
 
@@ -58,11 +52,11 @@ export async function getCroppedImg({
   rCtx.drawImage(image, -image.width / 2, -image.height / 2);
 
   // 2. Crop canvas
-  const cropCanvas = document.createElement("canvas");
+  const cropCanvas = document.createElement('canvas');
   cropCanvas.width = pixelCrop.width;
   cropCanvas.height = pixelCrop.height;
 
-  const cCtx = cropCanvas.getContext("2d")!;
+  const cCtx = cropCanvas.getContext('2d')!;
   cCtx.drawImage(
     rotatedCanvas,
     pixelCrop.x,
@@ -76,11 +70,11 @@ export async function getCroppedImg({
   );
 
   // 3. Resize (optional)
-  const finalCanvas = document.createElement("canvas");
+  const finalCanvas = document.createElement('canvas');
   finalCanvas.width = Math.floor(pixelCrop.width * resizeFactor);
   finalCanvas.height = Math.floor(pixelCrop.height * resizeFactor);
 
-  const fCtx = finalCanvas.getContext("2d")!;
+  const fCtx = finalCanvas.getContext('2d')!;
   fCtx.drawImage(
     cropCanvas,
     0,
@@ -96,9 +90,9 @@ export async function getCroppedImg({
   // 4. Try AVIF — verify properly
   let base64 = finalCanvas.toDataURL(HQNRD.MIMETYPE.image.AVIF, quality);
 
-  if (!base64.startsWith("data:image/avif")) {
-    console.warn("AVIF not supported, falling back to WebP.");
-    base64 = finalCanvas.toDataURL("image/webp", quality);
+  if (!base64.startsWith('data:image/avif')) {
+    console.warn('AVIF not supported, falling back to WebP.');
+    base64 = finalCanvas.toDataURL('image/webp', quality);
   }
 
   return base64;
@@ -106,12 +100,9 @@ export async function getCroppedImg({
 
 // Convert BASE64 → FILE
 export function dataURLtoFile(dataUrl: string, filename: string) {
-  const mimeType = dataUrl.substring(
-    dataUrl.indexOf(":") + 1,
-    dataUrl.indexOf(";"),
-  );
+  const mimeType = dataUrl.substring(dataUrl.indexOf(':') + 1, dataUrl.indexOf(';'));
 
-  const arr = dataUrl.split(",");
+  const arr = dataUrl.split(',');
   const bstr = atob(arr[1]);
   const u8arr = new Uint8Array(bstr.length);
 
@@ -120,7 +111,7 @@ export function dataURLtoFile(dataUrl: string, filename: string) {
   }
 
   const isAvif = mimeType === HQNRD.MIMETYPE.image.AVIF;
-  const ext = isAvif ? "avif" : "webp";
+  const ext = isAvif ? 'avif' : 'webp';
 
   return new File([u8arr], `${filename}.${ext}`, {
     type: mimeType,

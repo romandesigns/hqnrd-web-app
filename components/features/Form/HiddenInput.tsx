@@ -1,5 +1,5 @@
-import { Input } from "@/components/ui/input";
-import type { Locale } from "@/i18n-config";
+import { Input } from '@/components/ui/input';
+import type { Locale } from '@/i18n-config';
 
 /**
  * A hidden input component that renders an invisible, read-only input field.
@@ -24,13 +24,5 @@ export function HiddenInput({
   name: string;
   defaultValue: Locale | string | number;
 }) {
-  return (
-    <Input
-      readOnly
-      className="hidden"
-      type="text"
-      name={name}
-      defaultValue={defaultValue}
-    />
-  );
+  return <Input readOnly className="hidden" type="text" name={name} defaultValue={defaultValue} />;
 }

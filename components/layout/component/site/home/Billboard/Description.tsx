@@ -23,10 +23,10 @@ export function Description() {
         variant="small"
         align="center"
         transform="capitalize"
-        className="text-muted-foreground bg-muted foreground mx-auto max-w-xl rounded-md px-2.5 leading-relaxed"
+        className="text-muted-foreground md:bg-muted rounded-md leading-relaxed md:mx-auto md:max-w-xl md:px-2.5"
         size="xs"
       >
-        Contamos con todo lo necesario para ofrecerte una experiencia única. Visitanos hoy!
+        Contamos con todo lo necesario para ofrecerte una experiencia única
       </Text>
       <div className="mx-auto flex w-full max-w-md items-center justify-center gap-2">
         <Button className="flex-1">Iniciar Session</Button>

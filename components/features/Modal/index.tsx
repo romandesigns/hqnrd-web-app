@@ -1,5 +1,5 @@
-import { IconX } from "@/components/icons";
-import { Button } from "@/components/ui/button";
+import { IconX } from '@/components/icons';
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogClose,
@@ -7,9 +7,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog";
-import { Card } from "../Cards";
-import { ModalProps } from "@/types";
+} from '@/components/ui/dialog';
+import { Card } from '../Cards';
+import { ModalProps } from '@/types';
 
 /**
  * A reusable modal component that wraps a dialog with a trigger button and dynamic content.
@@ -46,9 +46,7 @@ export function Modal<T extends object>({
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="w-full max-w-md">
-          {triggerLabel || "Open Dialog"}
-        </Button>
+        <Button className="w-full max-w-md">{triggerLabel || 'Open Dialog'}</Button>
       </DialogTrigger>
 
       <DialogContent className="gap-0 p-0" showCloseButton={false}>

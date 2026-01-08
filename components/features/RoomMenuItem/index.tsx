@@ -1,31 +1,28 @@
-import { Locale } from "@/i18n-config";
-import Link from "next/link";
+import { Locale } from '@/i18n-config';
+import Link from 'next/link';
 
 export function RoomMenuItem({
-    title,
-    href,
-    description,
-    lang,
+  title,
+  href,
+  description,
+  lang,
 }: {
-    title: Record<Locale, string>;
-    href: string;
-    description: Record<Locale, string>;
-    lang: Locale;
+  title: Record<Locale, string>;
+  href: string;
+  description: Record<Locale, string>;
+  lang: Locale;
 }) {
-    return (
-        <Link
-            href={href}
-            className="flex gap-2 p-2 font-sans hover:bg-accent m-2 rounded-md"
-        >
-            <figure className="relative h-22 w-full bg-red-500 rounded-sm" />
-            <div className="h-full flex flex-col justify-start w-full">
-                {/* title */}
-                <p className="font-bold text-xs uppercase">{title[lang]}</p>
-                {/* description */}
-                <p className="text-xs text-muted-foreground mt-1 font-normal leading-relaxed">
-                    {description[lang]}
-                </p>
-            </div>
-        </Link>
-    );
+  return (
+    <Link href={href} className="hover:bg-accent m-2 flex gap-2 rounded-md p-2 font-sans">
+      <figure className="relative h-22 w-full rounded-sm bg-red-500" />
+      <div className="flex h-full w-full flex-col justify-start">
+        {/* title */}
+        <p className="text-xs font-bold uppercase">{title[lang]}</p>
+        {/* description */}
+        <p className="text-muted-foreground mt-1 text-xs leading-relaxed font-normal">
+          {description[lang]}
+        </p>
+      </div>
+    </Link>
+  );
 }

@@ -43,9 +43,7 @@ export default async function RootLayout({ children, params }: Readonly<RootLayo
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${poppinsSans.variable} overscroll-contain scroll-smooth antialiased`}>
-        <Providers lang={lang}>
-          {children}
-        </Providers>
+        <Providers lang={lang}>{children}</Providers>
       </body>
     </html>
   );

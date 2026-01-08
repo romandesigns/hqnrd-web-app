@@ -27,7 +27,7 @@ export async function MobileMenu({ lang, className }: { lang: Locale; className?
           <IconMenuDeep />
         </Button>
       </DrawerTrigger>
-      <DrawerContent className={clsx(`px-4 font-sans`, className)} content='calc(100vh)'>
+      <DrawerContent className={clsx(`px-4 font-sans`, className)} content="calc(100vh)">
         <DrawerHeader className="flex items-center justify-center">
           <div>
             <div className="my-4 rounded-md p-1 shadow dark:shadow-black">

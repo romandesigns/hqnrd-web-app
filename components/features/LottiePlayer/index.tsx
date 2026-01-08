@@ -1,8 +1,8 @@
 'use client';
 
-import { LottiePlayerProps } from "@/types";
-import clsx from "clsx";
-import Lottie from "lottie-react";
+import { LottiePlayerProps } from '@/types';
+import clsx from 'clsx';
+import Lottie from 'lottie-react';
 
 /**
  * A React component that renders a Lottie animation player.
@@ -28,12 +28,7 @@ import Lottie from "lottie-react";
  * ```
  */
 
-export function LottiePlayer({
-  item,
-  loop,
-  autoplay,
-  className,
-}: LottiePlayerProps) {
+export function LottiePlayer({ item, loop, autoplay, className }: LottiePlayerProps) {
   return (
     <div className={clsx(className)}>
       <Lottie animationData={item} loop={loop} autoplay={autoplay} />

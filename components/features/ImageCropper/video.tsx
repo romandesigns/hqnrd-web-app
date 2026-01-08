@@ -1,32 +1,33 @@
-"use client";
+'use client';
 
-import { clsx } from "clsx";
-import { useMutation, useQuery } from "convex/react";
-import type React from "react";
-import { useState } from "react";
-import { IconPlayerPlayFilled, IconTrash } from "@/components/icons";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { Spinner } from "@/components/ui/spinner";
-import { api } from "@/convex/_generated/api";
-import type { Id } from "@/convex/_generated/dataModel";
+import { clsx } from 'clsx';
+import { useMutation, useQuery } from 'convex/react';
+import type React from 'react';
+import { useState } from 'react';
+import { IconPlayerPlayFilled, IconTrash } from '@/components/icons';
+import { Button } from '@/components/ui/button';
+import { Label } from '@/components/ui/label';
+import { Spinner } from '@/components/ui/spinner';
+import { api } from '@/convex/_generated/api';
+import type { Id } from '@/convex/_generated/dataModel';
 
 type FileToUploadProps = {
-  fileId: Id<"_storage"> | null;
+  fileId: Id<'_storage'> | null;
 };
 
 export const VideoUpload = ({
   labelStyle,
-  fileName = "media",
-  placeholder = "Choose File",
+  fileName = 'media',
+  placeholder = 'Choose File',
 }: {
   labelStyle: string;
   fileName: string;
   placeholder?: string;
 }) => {
   const [loading, setLoading] = useState(false);
-  const [uploadedFileDetails, setUploadedFileDetails] =
-    useState<FileToUploadProps>({ fileId: null });
+  const [uploadedFileDetails, setUploadedFileDetails] = useState<FileToUploadProps>({
+    fileId: null,
+  });
 
   const generatedUploadUrl = useMutation(api.upload.generateUploadUrl);
   const deleteFileFromDb = useMutation(api.upload.deleteFileFromStorage);
@@ -34,9 +35,7 @@ export const VideoUpload = ({
   // Correct useQuery usage
   const fileUrl = useQuery(
     api.upload.getFileUrl,
-    uploadedFileDetails.fileId
-      ? { storageId: uploadedFileDetails.fileId }
-      : "skip",
+    uploadedFileDetails.fileId ? { storageId: uploadedFileDetails.fileId } : 'skip',
   );
 
   // ✔ VIDEO UPLOAD
@@ -46,8 +45,8 @@ export const VideoUpload = ({
     const localFile = e.target.files[0];
     const uploadUrl = await generatedUploadUrl();
     const result = await fetch(uploadUrl, {
-      method: "POST",
-      headers: { "Content-Type": localFile.type },
+      method: 'POST',
+      headers: { 'Content-Type': localFile.type },
       body: localFile,
     });
     const { storageId } = await result.json();
@@ -70,12 +69,12 @@ export const VideoUpload = ({
     return (
       <div
         className={clsx(
-          "h-full w-full flex flex-col gap-2 items-center justify-center rounded-md",
+          'flex h-full w-full flex-col items-center justify-center gap-2 rounded-md',
           labelStyle,
         )}
       >
         <Spinner className="h-5 w-5" />
-        <p className="text-xs text-muted-foreground">Uploading...</p>
+        <p className="text-muted-foreground text-xs">Uploading...</p>
       </div>
     );
   }
@@ -86,20 +85,20 @@ export const VideoUpload = ({
       {!fileUrl && (
         <Label
           className={clsx(
-            "w-full p-2 border flex items-center justify-center relative cursor-pointer",
+            'relative flex w-full cursor-pointer items-center justify-center border p-2',
             labelStyle,
           )}
           htmlFor={fileName}
         >
           <Button
-            className="absolute right-2 bottom-2 pointer-events-none"
+            className="pointer-events-none absolute right-2 bottom-2"
             size="icon"
             variant="default"
           >
             <IconPlayerPlayFilled size={18} />
           </Button>
 
-          <p className="text-xs text-muted-foreground">{placeholder}</p>
+          <p className="text-muted-foreground text-xs">{placeholder}</p>
 
           <input
             type="file"
@@ -114,25 +113,21 @@ export const VideoUpload = ({
 
       {/* VIDEO PREVIEW */}
       {fileUrl && (
-        <div className="relative w-full h-full">
-          <video
-            controls
-            className="w-full h-full rounded-md object-cover"
-            src={fileUrl}
-          />
+        <div className="relative h-full w-full">
+          <video controls className="h-full w-full rounded-md object-cover" src={fileUrl} />
 
           {/* Store final fileId into form */}
           <input
             className="hidden"
             name={fileName}
-            value={uploadedFileDetails.fileId ?? ""}
+            value={uploadedFileDetails.fileId ?? ''}
             readOnly
           />
 
-          <div className="absolute right-1 top-1">
+          <div className="absolute top-1 right-1">
             <Button
               size="icon"
-              className="bg-red-800 border border-red-500 hover:bg-red-400 rounded-md"
+              className="rounded-md border border-red-500 bg-red-800 hover:bg-red-400"
               onClick={handleClear}
             >
               <IconTrash size={18} />

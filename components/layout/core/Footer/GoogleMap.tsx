@@ -1,4 +1,4 @@
-import { Menu } from "../../core";
+import { Menu } from '../../core';
 
 /**
  * A component that displays an embedded Google Maps iframe showing the location of Hotel Quinto Nivel RD.
