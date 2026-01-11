@@ -1,11 +1,11 @@
-import { StarsRating, LottiePlayer } from '@/components/features';
+import { LottiePlayer, StarsRating } from '@/components/features';
 import { Button } from '@/components/ui/button';
 import { Text } from '@/components/ui/Text';
 import { google } from '@/public/assets/icons';
 
 export function Description() {
   return (
-    <article className="flex flex-col gap-6 rounded-lg px-2 lg:p-6">
+    <article className="flex flex-col gap-4 rounded-lg px-2 lg:p-6 lg:py-10">
       <div className="mx-auto flex w-full max-w-md items-center justify-center gap-2">
         <LottiePlayer item={google} autoplay loop className="h-8 w-8" />
         <div>
@@ -16,17 +16,8 @@ export function Description() {
       <Text variant="p" align="center" transform="capitalize" weight="bold" size="xs">
         En el del Cibao — Salcedo, Provincia Hermanas Mirabal
       </Text>
-      <Text variant="h1" align="center" transform="upper" className="mx-auto max-w-3xl">
+      <Text variant="h1" align="center" transform="upper" className="mx-auto max-w-3xl py-4">
         Serenidad, comodidad e higiene — todo en un mismo lugar
-      </Text>
-      <Text
-        variant="small"
-        align="center"
-        transform="capitalize"
-        className="text-muted-foreground md:bg-muted rounded-md leading-relaxed md:mx-auto md:max-w-xl md:px-2.5"
-        size="xs"
-      >
-        Contamos con todo lo necesario para ofrecerte una experiencia única
       </Text>
       <div className="mx-auto flex w-full max-w-md items-center justify-center gap-2">
         <Button className="flex-1">Iniciar Session</Button>

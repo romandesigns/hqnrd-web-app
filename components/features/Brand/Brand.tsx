@@ -44,7 +44,7 @@ export function Brand({
         <HeadingTag className="pt-1 text-[0.6rem] font-black uppercase">
           {HQNRD.BRANDING.LongName}
         </HeadingTag>
-        <p className="text-muted-foreground text-[0.65rem] font-normal">{HQNRD.BRANDING.slogan}</p>
+        <p className="text-muted-foreground text-[0.65rem] font-medium">{HQNRD.BRANDING.slogan}</p>
       </div>
     </Link>
   );

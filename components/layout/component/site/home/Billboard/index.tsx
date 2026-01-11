@@ -9,12 +9,14 @@ export function Billboard({ lang }: { lang: Locale }) {
     <Header>
       <Content className="relative grid pt-6">
         {/* Aspect-ratio wrapper */}
-        <Description />
-        {/* CONTACT WIDGET */}
-        <ContactWidget className="hidden md:block" lang={lang} btnVariant={'outline'} />
+        <div className="py-4">
+          <Description />
+          {/* CONTACT WIDGET */}
+          <ContactWidget className="hidden md:block" lang={lang} btnVariant={'outline'} />
+        </div>
         {/* GALLERY ROW */}
         <Gallery />
-        <RoomsFilter lang={lang} className="relative z-1 md:-mt-40" />
+        <RoomsFilter lang={lang} className="relative z-1 md:-mt-14 lg:-mt-34 xl:-mt-48" />
       </Content>
     </Header>
   );
