@@ -21,9 +21,11 @@ import clsx from 'clsx';
 export const Section = ({
   className,
   children,
+  py = false,
 }: {
   className?: string;
   children: React.ReactNode;
+  py?: boolean;
 }) => {
-  return <section className={clsx(``, className)}>{children}</section>;
+  return <section className={clsx(`${py ? 'py-14' : ''}`, className)}>{children}</section>;
 };

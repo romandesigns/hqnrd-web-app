@@ -22,7 +22,7 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <div
-      className={cn('flex w-full flex-col items-center justify-center pb-20 font-sans', className)}
+      className={cn('mb-20 flex w-full flex-col items-center justify-center font-sans', className)}
     >
       {title && (
         <div className="flex w-full items-center justify-center">

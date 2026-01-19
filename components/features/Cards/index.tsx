@@ -1,2 +1,4 @@
 import { Card } from './Default';
-export { Card };
+import { Testimonial } from './Testimonial';
+
+export { Card, Testimonial };
