@@ -10,6 +10,11 @@ export default async function Home({ params }: HomePageProps) {
     <SiteLayout lang={lang} Header={Billboard} showFooter showNavBar>
       <Main className="">
         <h2>Main Content</h2>
+        <section>
+          <div>
+            <div>Card</div>
+          </div>
+        </section>
       </Main>
     </SiteLayout>
   );
