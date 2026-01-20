@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 
 export function Navigation({ lang, className }: { lang: Locale; className?: string }) {
   return (
-    <nav className="bg-background/75 sticky top-0 z-50 backdrop-blur-sm">
+    <nav className="bg-background/75 sticky top-0 z-50 backdrop-blur-lg">
       <Content className="flex items-center">
         <Brand lang={lang} />
         <ul className="ml-auto flex items-center gap-4 py-2">
