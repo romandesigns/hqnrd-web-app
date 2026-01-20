@@ -28,7 +28,7 @@ export function Discount({
       className="w-full max-w-lg"
     >
       <div className="aspect-4/3 flex-1">
-        <div className="relative h-full flex-1 p-4">
+        <div className="relative h-full flex-1 p-2 lg:p-4">
           <div className="bg-background/40 relative z-2 flex h-full w-full items-center justify-center overflow-hidden rounded-md backdrop-blur-xl">
             <p className="z-1 text-9xl font-black">{discountPercent ?? 0}%</p>
           </div>
