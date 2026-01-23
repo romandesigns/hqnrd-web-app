@@ -42,7 +42,8 @@ export function Testimonial() {
           </p>
         </div>
         <div className="absolute inset-0 z-2 bg-linear-to-b from-transparent via-transparent to-black/85" />
-        <div className="absolute inset-0 z-1 bg-black/50" />
+        <div className="absolute inset-0 z-1 bg-black/30" />
+        <div className="absolute inset-0 z-1 bg-radial-[at_25%_25%] from-transparent to-black/50 to-75%" />
         <Image
           src="https://lh3.googleusercontent.com/a-/ALV-UjWHBG9KKgAAWTU2FzVa_u9WJbLIe_BtVVNY0VO6ZvdDF03lMk1CYA=w500-h500"
           fill

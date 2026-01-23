@@ -1,7 +1,7 @@
 import { TablerIcon } from '@tabler/icons-react';
 import type { ReactNode } from 'react';
 
-declare module 'get-rgba-palette'
+declare module 'get-rgba-palette';
 
 // RootLayout Props
 // ==========================================
@@ -73,7 +73,7 @@ export interface MenuProps {
 
 export interface CardDefaultProps {
   Header?: React.ReactNode;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   Footer?: React.ReactNode;
   className?: string;
   headerClassName?: string;
