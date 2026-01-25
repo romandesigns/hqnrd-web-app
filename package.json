@@ -11,9 +11,9 @@
     "docs": "typedoc"
   },
   "dependencies": {
-    "@clerk/localizations": "^3.35.1",
-    "@clerk/nextjs": "^6.36.9",
-    "@clerk/themes": "^2.4.49",
+    "@clerk/localizations": "^3.35.2",
+    "@clerk/nextjs": "^6.36.10",
+    "@clerk/themes": "^2.4.50",
     "@radix-ui/react-avatar": "^1.1.11",
     "@radix-ui/react-collapsible": "^1.1.12",
     "@radix-ui/react-dialog": "^1.1.15",
@@ -37,7 +37,7 @@
     "get-rgba-palette": "^2.0.1",
     "keen-slider": "^6.8.6",
     "lottie-react": "^2.4.1",
-    "lucide-react": "^0.562.0",
+    "lucide-react": "^0.563.0",
     "next": "16.1.4",
     "next-themes": "^0.4.6",
     "react": "19.2.3",
@@ -52,7 +52,7 @@
     "vaul": "^1.1.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.3.11",
+    "@biomejs/biome": "2.3.12",
     "@tailwindcss/postcss": "^4.1.18",
     "@types/bun": "^1.3.6",
     "@types/get-pixels": "^3.3.4",

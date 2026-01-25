@@ -46,6 +46,14 @@ export interface ExLinkProps {
   children: React.ReactNode;
   className?: string;
 }
+// Category Props
+// ==========================================
+
+export interface CategoryProps {
+  label: string;
+  Icon: React.ElementType;
+  className: string;
+}
 
 // Menu Item and Menu Props
 // ==========================================
