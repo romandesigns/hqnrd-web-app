@@ -52,7 +52,7 @@ export interface ExLinkProps {
 export interface CategoryProps {
   label: string;
   Icon: React.ElementType;
-  className: string;
+  className?: string;
 }
 
 // Menu Item and Menu Props

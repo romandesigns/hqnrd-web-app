@@ -58,9 +58,11 @@ export function Card({
       )}
     >
       {isHeaderVisible(Header) && <header className={cn('p-2', headerClassName)}>{Header}</header>}
-      <article className={cn(`${showElevatedSurface ? 'elevated-surface' : ''}`, bodyClassName)}>
-        {children}
-      </article>
+      {children && (
+        <article className={cn(`${showElevatedSurface ? 'elevated-surface' : ''}`, bodyClassName)}>
+          {children}
+        </article>
+      )}
       {Footer && (
         <footer className={cn('text-muted-foreground text-xs', footerClassName)}>{Footer}</footer>
       )}
