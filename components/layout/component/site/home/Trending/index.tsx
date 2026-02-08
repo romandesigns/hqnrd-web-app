@@ -11,7 +11,6 @@ export function Trending() {
         <Room lang="en" />
         <Room lang="en" />
         <Room lang="en" />
-        <Room lang="en" />
       </Content>
     </Section>
   );

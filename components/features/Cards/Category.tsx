@@ -1,11 +1,10 @@
 import { Card, Views } from '@/components/features';
 import { Button } from '@/components/ui/button';
+import { Overlay } from '@/components/ui/Overlay';
+import { Share } from '@/components/ui/share';
+import images from '@/public/assets/hqnrd/images.json';
 import { CategoryProps } from '@/types';
 import Image from 'next/image';
-import images from '@/public/assets/hqnrd/images.json';
-import { Overlay } from '@/components/ui/Overlay';
-import { Badge } from '@/components/ui/badge';
-import { Share } from '@/components/ui/share';
 
 export function Category({ className, Icon, label }: CategoryProps) {
   return (

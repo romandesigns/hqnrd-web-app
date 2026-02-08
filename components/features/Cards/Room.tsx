@@ -12,6 +12,11 @@ import {
   IconPropeller,
   IconToolsKitchen3,
   IconWheelchair,
+  IconMicrowave,
+  IconBread,
+  IconBrandCouchdb,
+  IconBlender,
+  IconWindow,
 } from '@/components/icons';
 
 function ItemsCounter({ count, label }: { count?: number; label?: string }) {
@@ -31,7 +36,6 @@ function ItemsCounter({ count, label }: { count?: number; label?: string }) {
 
 function CategoryFooter({
   title,
-  pricePerNight,
   amenities,
   totalAmenities,
   lang,
@@ -39,7 +43,6 @@ function CategoryFooter({
   unitNumber,
 }: {
   title: string;
-  pricePerNight: number;
   lang: Locale;
   unitNumber?: string;
   slug: string;
@@ -72,19 +75,14 @@ function CategoryFooter({
     <>
       <div className="relative z-2 flex flex-col gap-1 pb-2">
         <div className="flex items-center justify-between">
-          <h3 className="text-md flex flex-col font-bold text-(--brand-warning) uppercase lg:text-sm">
+          <h3 className="text-md flex flex-col font-bold text-(--brand-warning) uppercase lg:text-lg">
             {title}
           </h3>
-          <p className="text-primary text-sm font-bold lg:text-xs">
-            {pricePerNight}
-            /Night
-          </p>
+          <Share className="text-primary-foreground dark:text-primary absolute top-2 right-2 z-10 hover:bg-white/20" />
         </div>
         <div className="flex items-center gap-2 py-2">
           <FeaturedList items={amenities} />
-          <span className="inline-block font-semibold">
-            ..{totalAmenities - amenities.length} +
-          </span>
+          <span className="inline-block font-semibold">..{amenities.length} +</span>
         </div>
         <FeaturedList
           gap={1}
@@ -92,7 +90,7 @@ function CategoryFooter({
           accent="muted"
           items={features}
           showLabel
-          itemClassName="p-0.5 px-1.5 [&_span[data-label]]:text-[0.6rem] bg-muted backdrop-blur-2xl rounded-full"
+          itemClassName="p-0.5 px-1.5 [&_span[data-label]]:text-[0.6rem] bg-muted backdrop-blur-2xl rounded-full mb-1"
         />
       </div>
       <Button
@@ -128,6 +126,26 @@ export async function Room({ lang }: { lang: Locale }) {
       label: 'Wheelchair Accessible',
       Icon: IconWheelchair,
     },
+    {
+      label: 'Microwave',
+      Icon: IconMicrowave,
+    },
+    {
+      label: 'Toaster',
+      Icon: IconBread,
+    },
+    {
+      label: 'Couch',
+      Icon: IconBrandCouchdb,
+    },
+    {
+      label: 'Blender',
+      Icon: IconBlender,
+    },
+    {
+      label: 'Balcony',
+      Icon: IconWindow,
+    },
   ];
   return (
     <Card
@@ -136,7 +154,6 @@ export async function Room({ lang }: { lang: Locale }) {
       Footer={
         <CategoryFooter
           lang={lang}
-          pricePerNight={1200}
           title={'Doble Cama'}
           amenities={amenityItems}
           totalAmenities={amenityItems.length}
@@ -149,8 +166,10 @@ export async function Room({ lang }: { lang: Locale }) {
     >
       <div>
         <figure className="relative flex h-52 items-end justify-start overflow-hidden rounded-sm">
-          <div className="absolute inset-0 z-1 bg-linear-0 from-neutral-950/85 via-neutral-950/50 to-neutral-950/20" />
-          <Share className="text-primary-foreground dark:text-primary absolute top-2 right-2 z-10 hover:bg-white/20" />
+          <p className="bg-background absolute right-2 bottom-2 z-2 rounded-xs p-2 font-bold shadow-lg">
+            1,200 / Night
+          </p>
+          <div className="absolute inset-0 z-1 bg-linear-0 from-neutral-950/85 via-neutral-950/20 to-neutral-950/10" />
           <Image src={images.images[2]} alt="Category" className="object-cover" fill />
         </figure>
       </div>
