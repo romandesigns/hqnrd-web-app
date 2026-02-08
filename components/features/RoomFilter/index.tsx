@@ -1,6 +1,6 @@
 import { Search } from 'lucide-react';
 import Form from 'next/form';
-import { Card } from '@/components/features';
+import { Calendar, Card } from '@/components/features';
 import { Content } from '@/components/layout';
 import { Button } from '@/components/ui/button';
 import { InputNumber } from '@/components/ui/InputNumber';
@@ -44,7 +44,7 @@ export function RoomsFilter({ lang, className }: { lang: Locale; className?: str
               />
             </div>
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center sm:gap-4 lg:flex-row lg:gap-4">
-              <DateAndTimePicker
+              {/* <DateAndTimePicker
                 lang={lang}
                 granularity="minute"
                 icon="calendar"
@@ -53,7 +53,8 @@ export function RoomsFilter({ lang, className }: { lang: Locale; className?: str
                 minDate={new Date(new Date().setHours(0, 0, 0, 0))}
                 displayFormat={{ hour12: 'MM/dd/yyyy hh:mm a' }}
                 inputName="checkIn"
-              />
+              /> */}
+              <Calendar />
               <Button className="mt-5 p-5 sm:hidden lg:flex lg:p-4.25" type="submit">
                 Search
               </Button>
