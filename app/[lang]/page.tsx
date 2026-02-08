@@ -1,6 +1,11 @@
 import { SiteLayout } from '@/components/layout';
 import { Billboard } from '@/components/layout/component';
-import { Testimonials, Discounts, Categories } from '@/components/layout/component/site/home';
+import {
+  Testimonials,
+  Discounts,
+  Categories,
+  Trending,
+} from '@/components/layout/component/site/home';
 import { Main } from '@/components/layout/core';
 import { HomePageProps } from '@/types';
 
@@ -13,6 +18,7 @@ export default async function Home({ params }: HomePageProps) {
         <Testimonials />
         <Discounts />
         <Categories />
+        <Trending />
       </Main>
     </SiteLayout>
   );

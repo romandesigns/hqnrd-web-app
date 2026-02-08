@@ -43,26 +43,10 @@ export function RoomsFilter({ lang, className }: { lang: Locale; className?: str
                 iconSize={16}
               />
             </div>
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center sm:gap-4 lg:flex-row lg:gap-4">
-              {/* <DateAndTimePicker
-                lang={lang}
-                granularity="minute"
-                icon="calendar"
-                hideIcon={true}
-                label="Check In"
-                minDate={new Date(new Date().setHours(0, 0, 0, 0))}
-                displayFormat={{ hour12: 'MM/dd/yyyy hh:mm a' }}
-                inputName="checkIn"
-              /> */}
-              <Calendar />
-              <Button className="mt-5 p-5 sm:hidden lg:flex lg:p-4.25" type="submit">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-center sm:gap-4 lg:flex-row lg:gap-4">
+              <Calendar className="flex-1" />
+              <Button className="mt-5 flex p-5 sm:hidden lg:flex lg:p-4.25" type="submit">
                 Search
-              </Button>
-              <Button
-                size="icon"
-                className="hidden items-center justify-center self-end min-[641px]:flex lg:hidden"
-              >
-                <Search />
               </Button>
             </div>
           </Form>

@@ -6,3 +6,4 @@ export { Section } from './Section';
 export { Header } from './Header';
 export { Navigation } from './Navigation';
 export { Footer } from './Footer';
+export { FeaturedList } from './FeaturedList';
