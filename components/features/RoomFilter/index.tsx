@@ -1,11 +1,10 @@
 import { Search } from 'lucide-react';
 import Form from 'next/form';
-import { Calendar, Card } from '@/components/features';
+import { CalendarRange, Card } from '@/components/features';
 import { Content } from '@/components/layout';
 import { Button } from '@/components/ui/button';
 import { InputNumber } from '@/components/ui/InputNumber';
 import type { Locale } from '@/i18n-config';
-import { DateAndTimePicker } from '@/components/ui/DateTimePicker';
 import { Section } from '@/components/layout/core';
 import clsx from 'clsx';
 
@@ -44,7 +43,7 @@ export function RoomsFilter({ lang, className }: { lang: Locale; className?: str
               />
             </div>
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-center sm:gap-4 lg:flex-row lg:gap-4">
-              <Calendar className="flex-1" />
+              <CalendarRange className="flex-1" />
               <Button className="mt-5 flex p-5 sm:hidden lg:flex lg:p-4.25" type="submit">
                 Search
               </Button>

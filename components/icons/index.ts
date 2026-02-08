@@ -78,6 +78,7 @@ import {
   IconUsers,
   IconBuilding,
   IconHotelService,
+  IconEye,
 } from '@tabler/icons-react';
 import { GrFan } from 'react-icons/gr';
 import { MdOutlineDinnerDining } from 'react-icons/md';
@@ -85,6 +86,7 @@ import { PiTowel } from 'react-icons/pi';
 import { Heater as IconHeader, House as IconHouse } from 'lucide-react';
 
 export {
+  IconEye,
   IconHotelService,
   IconBed,
   IconBriefcase,

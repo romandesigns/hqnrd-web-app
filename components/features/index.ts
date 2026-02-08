@@ -11,6 +11,7 @@ export { Cart } from '@/components/features/Cart';
 export { MobileMenu } from '@/components/features/MobileMenu';
 export { LottiePlayer } from '@/components/features/LottiePlayer';
 export { RoomsFilter } from '@/components/features/RoomFilter';
-export { Calendar } from '@/components/features/Calendar';
+export { CalendarRange } from '@/components/features/CalendarRange';
+export { Views } from '@/components/features/Views';
 
 export { HiddenDialogItem };

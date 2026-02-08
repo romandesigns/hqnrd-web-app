@@ -6,6 +6,13 @@ import images from '@/public/assets/hqnrd/images.json';
 import { Card } from './Default';
 import { FeaturedList } from '@/components/layout/core';
 import { Share } from '@/components/ui/share';
+import {
+  IconAirConditioning,
+  IconTeapot,
+  IconPropeller,
+  IconToolsKitchen3,
+  IconWheelchair,
+} from '@/components/icons';
 
 function ItemsCounter({ count, label }: { count?: number; label?: string }) {
   return (
@@ -74,10 +81,10 @@ function CategoryFooter({
           </p>
         </div>
         <div className="flex items-center gap-2 py-2">
-          {/* <FeaturedList items={amenities} />
+          <FeaturedList items={amenities} />
           <span className="inline-block font-semibold">
             ..{totalAmenities - amenities.length} +
-          </span> */}
+          </span>
         </div>
         <FeaturedList
           gap={1}
@@ -100,6 +107,28 @@ function CategoryFooter({
 }
 
 export async function Room({ lang }: { lang: Locale }) {
+  const amenityItems = [
+    {
+      label: 'Air Conditioning',
+      Icon: IconAirConditioning,
+    },
+    {
+      label: 'Coffee Maker',
+      Icon: IconTeapot,
+    },
+    {
+      label: 'Ceiling Fan',
+      Icon: IconPropeller,
+    },
+    {
+      label: 'Kitchenette',
+      Icon: IconToolsKitchen3,
+    },
+    {
+      label: 'Wheelchair Accessible',
+      Icon: IconWheelchair,
+    },
+  ];
   return (
     <Card
       bodyClassName="p-0! overflow-hidden"
@@ -109,8 +138,8 @@ export async function Room({ lang }: { lang: Locale }) {
           lang={lang}
           pricePerNight={1200}
           title={'Doble Cama'}
-          amenities={[]}
-          totalAmenities={0}
+          amenities={amenityItems}
+          totalAmenities={amenityItems.length}
           slug={'doble-cama'}
           unitNumber={'205'}
         />

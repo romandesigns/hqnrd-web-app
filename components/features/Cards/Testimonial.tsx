@@ -14,16 +14,16 @@ function Footer() {
         </span>
       </div>
       <div className="flex flex-wrap gap-2">
-        <h5 className="flex max-w-24 gap-1 rounded-full border p-1 px-2 dark:bg-(--brand-warning)/5">
-          <span>Service</span>
+        <h5 className="flex max-w-24 gap-1 rounded-full bg-(--brand-warning)/10 p-1 px-2">
+          <span className="font-medium">Service</span>
           <span className="font-semibold text-(--brand-warning)">4.5</span>
         </h5>
-        <h5 className="flex max-w-24 gap-1 rounded-full border p-1 px-2 dark:bg-(--brand-warning)/5">
-          <span>Room</span>
+        <h5 className="flex max-w-24 gap-1 rounded-full bg-(--brand-warning)/10 p-1 px-2">
+          <span className="font-medium">Room</span>
           <span className="font-semibold text-(--brand-warning)">4.5</span>
         </h5>
-        <h5 className="flex max-w-24 gap-1 rounded-full border p-1 px-2 dark:bg-(--brand-warning)/5">
-          <span>Location</span>
+        <h5 className="flex max-w-24 gap-1 rounded-full bg-(--brand-warning)/10 p-1 px-2">
+          <span className="font-medium">Location</span>
           <span className="font-semibold text-(--brand-warning)">4.5</span>
         </h5>
       </div>
@@ -36,7 +36,7 @@ export function Testimonial() {
     <Card bodyClassName="p-0!" Footer={<Footer />}>
       <figure className="relative aspect-3/3 overflow-hidden rounded-lg">
         <div className="absolute right-2 bottom-2 left-2 z-3 p-1 font-sans text-white">
-          <h5>Roman Feliz</h5>
+          <h5 className="font-bold">Roman Feliz</h5>
           <p className="text-[0.70rem]">
             Excellent experience, it's like being at home, very clean, and the service is
             outstanding.
